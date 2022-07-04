@@ -162,6 +162,7 @@
     .page-layout-1column .block.widget .products-grid .product-item {
         margin-left: 2%;
         width: calc(~'(100% - 8%) / 5');
+        text-align: center;
 
         &:nth-child(4n + 1) {
             margin-left: 2%;
@@ -187,6 +188,16 @@
 
         &:nth-child(4n + 1) {
             margin-left: 0;
+        }
+        .our-products & {
+            width: calc(~'(100% / 4)');
+            margin: 0;
+            text-align: center;
+
+            &:nth-child(n){
+                margin: 0;
+                padding: 0 15px;
+            }
         }
     }
 }
