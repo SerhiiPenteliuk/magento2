@@ -103,10 +103,12 @@
                             &:extend(.abs-visually-hidden all);
                         }
                         &.tosearch {
-                            .lib-icon-font(@icon-search,
-                                @_icon-font: 'luma-icons',
-                                @_icon-font-position: before
-                            );
+                            .our-products & {
+                                .lib-icon-font(@icon-search,
+                                    @_icon-font: 'luma-icons',
+                                    @_icon-font-position: before
+                                );
+                            }
                         }
                     }
                 }
@@ -145,7 +147,10 @@
                 .price {
                     font-weight: @font-weight__semibold;
                     white-space: nowrap;
-                    font-size: 2rem;
+
+                    .our-products & {
+                        font-size: 2rem;
+                    }
                 }
 
                 .price-label {
@@ -163,9 +168,12 @@
 
                 .price {
                     font-weight: normal;
-                    font-size: smaller;
-                    text-decoration: line-through;
-                    vertical-align: text-top;
+
+                    .our-products & {
+                        font-size: smaller;
+                        text-decoration: line-through;
+                        vertical-align: text-top;
+                    }
                 }
             }
 
@@ -346,13 +354,17 @@
         .products-grid & {
             &:hover,
             &.active {
-                position: relative;
-                z-index: 9;
-                -webkit-transition: all .3s ease;
-                transition: all .3s ease;
+                .our-products & {
+                    position: relative;
+                    z-index: 9;
+                    -webkit-transition: all .3s ease;
+                    transition: all .3s ease;
+                }
 
                 .price-box {
-                    display: none;
+                    .our-products & {
+                        display: none;
+                    }
                 }
 
                 .product-item-inner {
@@ -360,17 +372,19 @@
                 }
 
                 .tocart {
-                    text-transform: uppercase;
-                    font-size: 14px;
-                    letter-spacing: 1px;
-                    font-weight: 600;
-                    color: #222;
-                    text-align: center;
-                    border: 0;
-                    border-bottom: 1px solid #222;
-                    margin: auto;
-                    background: 0 0;
-                    padding: 0 0 10px 0;
+                    .our-products & {
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        font-weight: 600;
+                        color: #222;
+                        text-align: center;
+                        border: 0;
+                        border-bottom: 1px solid #222;
+                        margin: auto;
+                        background: 0 0;
+                        padding: 0 0 10px 0;
+                    }
                 }
 
                 .sidebar & {
@@ -385,12 +399,22 @@
 
     .product-item-inner {
         .products-grid & {
+            border-top: none;
             left: 0;
             margin: 10px 0 0 -1px;
             padding: 0 9px 9px;
             position: absolute;
             right: -1px;
             z-index: 2;
+
+            .our-products & {
+                left: 0;
+                margin: 10px 0 0 -1px;
+                padding: 0 9px 9px;
+                position: absolute;
+                right: -1px;
+                z-index: 2;
+            }
         }
     }
 
@@ -402,13 +426,18 @@
         }
 
         .actions-primary + .actions-secondary {
-            display: flex;
-            position: absolute;
-            top: -30rem;
-            right: 12rem;
-            flex-direction: column;
-            background-color: @color-elogic__white;
-            padding: 3%;
+            display: inline-block;
+            vertical-align: middle;
+
+            .our-products & {
+                display: flex;
+                position: absolute;
+                top: -30rem;
+                right: 12rem;
+                flex-direction: column;
+                background-color: @color-elogic__white;
+                padding: 3%;
+            }
         }
 
             > .action {
