@@ -3,14 +3,14 @@
 //  _____________________________________________
 
 @product-name-link__color: @text__color;
-@product-name-link__color__active: @text__color;
-@product-name-link__color__hover: @text__color;
-@product-name-link__color__visited: @text__color;
+@product-name-link__color__active: #888;
+@product-name-link__color__hover: #000;
+@product-name-link__color__visited: #888;
 
 @product-name-link__text-decoration: none;
-@product-name-link__text-decoration__active: @link__hover__text-decoration;
-@product-name-link__text-decoration__hover: @link__hover__text-decoration;
-@product-name-link__text-decoration__visited: @link__hover__text-decoration;
+@product-name-link__text-decoration__active: @link__visited__text-decoration;
+@product-name-link__text-decoration__hover: @link__visited__text-decoration;
+@product-name-link__text-decoration__visited: @link__visited__text-decoration;
 
 @product-item__hover__background-color: @color-white;
 @product-item__hover__box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, .3);
@@ -25,6 +25,21 @@
     //  Product Lists
     .products {
         margin: @indent__l 0;
+    }
+
+    .bestsellers {
+        h2 {
+            font-size: 18px;
+            color: #222;
+            text-align: left;
+            padding-bottom: 5%;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10%;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 10%;
+        }
     }
 
     .product {
@@ -63,6 +78,10 @@
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 margin-bottom: 10px;
+
+                & a {
+                    color:#888;
+                }
             }
 
             &-info {
@@ -151,6 +170,10 @@
                     .our-products & {
                         font-size: 2rem;
                     }
+
+                    .bestsellers & {
+                        font-size: 2rem;
+                    }
                 }
 
                 .price-label {
@@ -173,6 +196,12 @@
                         font-size: smaller;
                         text-decoration: line-through;
                         vertical-align: text-top;
+                    }
+
+                    .bestsellers & {
+                        font-size: smaller;
+                        text-decoration: line-through;
+                        vertical-align: top;
                     }
                 }
             }
@@ -357,8 +386,6 @@
                 .our-products & {
                     position: relative;
                     z-index: 9;
-                    -webkit-transition: all .3s ease;
-                    transition: all .3s ease;
                 }
 
                 .price-box {
@@ -369,22 +396,6 @@
 
                 .product-item-inner {
                     display: block;
-                }
-
-                .tocart {
-                    .our-products & {
-                        text-transform: uppercase;
-                        font-size: 14px;
-                        letter-spacing: 1px;
-                        font-weight: 600;
-                        color: #222;
-                        text-align: center;
-                        border: 0;
-                        border-bottom: 1px solid #222;
-                        margin: auto;
-                        background: 0 0;
-                        padding: 0 0 10px 0;
-                    }
                 }
 
                 .sidebar & {
@@ -425,6 +436,24 @@
             margin: -@indent__s 0 @indent__s;
         }
 
+        .actions-primary {
+            .action.primary {
+                .our-products & {
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                    color: #222;
+                    text-align: center;
+                    border: 0;
+                    border-bottom: 1px solid #222;
+                    margin: auto;
+                    background: 0 0;
+                    padding: 0 0 10px 0;
+                }
+            }
+        }
+
         .actions-primary + .actions-secondary {
             display: inline-block;
             vertical-align: middle;
@@ -438,6 +467,10 @@
                 background-color: @color-elogic__white;
                 padding: 3%;
             }
+        }
+
+        .bestsellers & {
+            display: none;
         }
 
             > .action {

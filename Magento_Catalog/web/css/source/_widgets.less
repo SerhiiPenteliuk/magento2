@@ -17,18 +17,61 @@
         }
     }
 
+    .bestsellers {
+        .product-item {
+            width: 100%;
+        }
+    }
+
     .block.widget {
         .products-grid .product-item {
-            margin-left: 2%;
-            width: calc(~'(100% - 2%) / 2');
+            margin-left: 0;
+            width: 50%;
+            padding-right: 2%;
 
             &:nth-child(2n + 1) {
                 margin-left: 0;
+            }
+            .bestsellers & {
+                display: flex;
             }
         }
 
         .product-item-info {
             width: auto;
+
+            .bestsellers & {
+                display: flex;
+                align-items: center;
+            }
+
+            .product-item-photo {
+                .bestsellers & {
+                    width: 25%;
+                }
+            }
+
+            .product-item-details {
+                .bestsellers &{
+                    margin-left: 2%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    line-height: 1rem;
+                }
+            }
+        }
+
+        .bestsellers &{
+            .block-content{
+                .products-grid {
+                    .widget-product-grid.product-items {
+                        .product-item {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
 
         .pager {
@@ -62,7 +105,7 @@
     .sidebar .block-viewed-products-grid {
         .products-grid {
             .product-item {
-                margin-left: 2%;
+                margin-left: 0;
                 width: calc(~'(100% - 2%) / 2');
 
                 &:nth-child(2n + 1) {
@@ -94,8 +137,9 @@
     }
 
     .page-layout-1column .block.widget .products-grid .product-item {
-        margin-left: 2%;
-        width: calc(~'(100% - 4%) / 3');
+        margin-left: 0;
+        width: 25%;
+        padding-right: 2%;
 
         &:nth-child(3n + 1) {
             margin-left: 0;
@@ -123,11 +167,12 @@
     }
 
     .page-layout-1column .block.widget .products-grid .product-item {
-        margin-left: 2%;
-        width: calc(~'(100% - 6%) / 4');
+        margin-left: 0;
+        width: 25%;
+        padding-right: 1%;
 
         &:nth-child(3n + 1) {
-            margin-left: 2%;
+            margin-left: 0;
         }
 
         &:nth-child(4n + 1) {
@@ -160,12 +205,12 @@
     }
 
     .page-layout-1column .block.widget .products-grid .product-item {
-        margin-left: 2%;
+        margin-left: 0;
         width: calc(~'(100% - 8%) / 5');
         text-align: center;
 
         &:nth-child(4n + 1) {
-            margin-left: 2%;
+            margin-left: 0;
         }
 
         &:nth-child(5n + 1) {
@@ -196,7 +241,7 @@
 
             &:nth-child(n){
                 margin: 0;
-                padding: 0 15px;
+                padding-right: 1%;
             }
         }
     }
