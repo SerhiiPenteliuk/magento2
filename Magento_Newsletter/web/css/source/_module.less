@@ -1,0 +1,137 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        justify-content: space-between;
+        background-color: #f4f4f4;
+        padding: 0 16% 0 17%;
+
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+
+            .control {
+                display: block;
+                margin-right: 2%;
+            }
+        }
+
+        input {
+            background: 0 0;
+            border: 1px solid #ddd;
+            height: 49px;
+            line-height: 49px;
+            padding-left: 20px;
+
+            &::placeholder {
+                color: #888;
+                font-weight: 100;
+            }
+        }
+
+        .title {
+            h2 {
+                margin-bottom: 0;
+                font-weight: 600;
+                letter-spacing: 2px;
+                color: #222;
+                font-size: 30px;
+                text-transform: uppercase;
+                line-height: normal;
+
+                &:hover {
+                    color: #222;
+                }
+            }
+            p {
+                color: #888;
+                font-weight: 100;
+                padding-bottom: 4%;
+            }
+
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+        }
+
+        .action.subscribe {
+            padding: 17px 35px;
+            border: 0;
+            color: #fff;
+            background: #222;
+            font-style: normal;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0;
+            margin: 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block.newsletter {
+        .field.newsletter {
+            max-width: 220px;
+        }
+
+        .form.subscribe {
+            > .field,
+            > .actions {
+                float: left;
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block {
+        &.newsletter {
+            input {
+                font-size: 12px;
+                padding-left: 30px;
+            }
+
+            .field {
+                .control:before {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
