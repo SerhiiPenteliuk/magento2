@@ -3,6 +3,9 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="default_head_blocks"/>
     <body>
+
+            <!--        footer         -->
+
         <referenceBlock name="footer_links" remove="true"> </referenceBlock>
         <referenceBlock name="copyright" remove="true"> </referenceBlock>
 
@@ -15,5 +18,13 @@
                 </arguments>
             </block>
         </referenceContainer>
+
+        <!--        header          -->
+        <referenceContainer name="header.panel.wrapper" remove="true"> </referenceContainer>
+        <referenceContainer name="compare-link-wrapper" remove="true"> </referenceContainer>
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+        <move element="authorization-link" destination="header-wrapper" after="navigation.sections"/>
+        <move element="wish-list-link" destination="header-wrapper" after="authorization-link"/>
+
     </body>
 </page>
