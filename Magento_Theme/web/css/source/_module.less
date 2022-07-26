@@ -93,6 +93,11 @@
             align-items: center;
             justify-content: space-between;
 
+            &:before,
+            &:after {
+                display: none;
+            }
+
             .minicart-wrapper {
                 margin: 0;
             }
@@ -125,7 +130,7 @@
                 text-transform: uppercase;
 
                 &:hover {
-                    color: #888;
+                    color: @color-elogic__grey;
                 }
             }
 
