@@ -37,6 +37,7 @@
                 border: none;
                 padding: 5.5px 30px 10px 0;
             }
+
             > td {
                 border: none;
                 padding: 5.5px 5px 10px;
@@ -44,17 +45,22 @@
         }
     }
 }
+
 //
 //  Page -- Full Width
 //  _____________________________________________
 
 & when (@media-common = true) {
-    .cms-index-index.page-layout-cms-full-width .nav-sections {
+    .cms-index-index.page-layout-cms-full-width .nav-sections,
+    .page-layout-2columns-left .nav-sections,
+    .page-layout-2columns-right .nav-sections {
         margin-bottom: 0;
         width: 45%;
+        text-decoration: none;
 
         .navigation {
             background-color: @color-elogic__white;
+            border: none;
         }
     }
 }

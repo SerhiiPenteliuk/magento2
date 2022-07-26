@@ -7,6 +7,14 @@
                 <width>310</width>
                 <height>400</height>
             </image>
+            <image id="category_page_grid" type="small_image">
+                <width>640</width>
+                <height>800</height>
+            </image>
+            <image id="category_page_grid-1" type="small_image">
+                <width>640</width>
+                <height>800</height>
+            </image>
         </images>
     </media>
 </view>
