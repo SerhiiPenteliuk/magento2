@@ -6,6 +6,8 @@ use Magento\Framework\App\Action\Action;
 <?php
 /**
  * Product list template
+ * Move description block and custom it, delete more details field
+ * Added product hover image functionality
  *
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  * @var \Magento\Framework\Escaper $escaper
@@ -16,6 +18,8 @@ use Magento\Framework\App\Action\Action;
 $_productCollection = $block->getLoadedProductCollection();
 /** @var \Magento\Catalog\Helper\Output $_helper */
 $_helper = $block->getData('outputHelper');
+$_imageHelper = $this->helper('Magento\Catalog\Helper\Image');
+$_imageHover = 'hover_product_list';
 ?>
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty">
@@ -49,19 +53,34 @@ $_helper = $block->getData('outputHelper');
                     <div class="product-item-info"
                          id="product-item-info_<?= /* @noEscape */ $_product->getId() ?>"
                          data-container="product-<?= /* @noEscape */ $viewMode ?>">
-                        <?php
-                        $productImage = $block->getImage($_product, $imageDisplayArea);
-                        if ($pos != null) {
-                            $position = 'left:' . $productImage->getWidth() . 'px;'
-                                . 'top:' . $productImage->getHeight() . 'px;';
-                        }
-                        ?>
-                        <?php // Product Image ?>
-                        <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
-                           class="product photo product-item-photo"
-                           tabindex="-1">
-                            <?= $productImage->toHtml() ?>
-                        </a>
+
+                        <div class="product-item-image" data-container="product-grid">
+                            <?php
+                            $productImage = $block->getImage($_product, $imageDisplayArea);
+                            if ($pos != null) {
+                                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                    . 'top:' . $productImage->getHeight() . 'px;"';
+                            }
+                            ?>
+                            <?php // Product Image ?>
+                            <a class="product-item-photo-focus" href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
+                                <?= $productImage->toHtml() ?>
+                            </a>
+                            <?php //Product Image Hovered ?>
+                            <?php
+                            $productImageHover = $_imageHelper->init($_product, $_imageHover);
+                            if ($pos != null) {
+                                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                    . 'top:' . $productImage->getHeight() . 'px;"';
+                            }
+                            ?>
+                            <?php if (strpos($productImageHover->getUrl(), 'Magento_Catalog/images/product/placeholder/hover.jpg') == false && $viewMode=='grid') { ?>
+                                <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product-item-photo-hovered" tabindex="-1">
+                                    <img src="<?php echo $productImageHover->getUrl(); ?>" class="photo-image-hover" width="<?php echo $productImage->getWidth(); ?>" height="<?php echo $productImage->getWidth() ?>" alt="<?php echo $productImageHover->getLabel() ?>"/>
+                                </a>
+                            <?php } ?>
+                        </div>
+
                         <div class="product details product-item-details">
                             <?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
                             <strong class="product name product-item-name">
@@ -70,6 +89,15 @@ $_helper = $block->getData('outputHelper');
                                     <?=/* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name')?>
                                 </a>
                             </strong>
+                            <?php if ($showDescription): ?>
+                                <div class="product description product-item-description">
+                                    <?= /* @noEscape */ $_helper->productAttribute(
+                                        $_product,
+                                        $_product->getShortDescription(),
+                                        'short_description'
+                                    ) ?>
+                            <?php endif; ?>
+
                             <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                             <?= /* @noEscape */ $block->getProductPrice($_product) ?>
 
@@ -133,18 +161,6 @@ $_helper = $block->getData('outputHelper');
                                             'product-item-info_' . $_product->getId() . ' div.actions-secondary'
                                         ) : '' ?>
                                 </div>
-                                <?php if ($showDescription): ?>
-                                    <div class="product description product-item-description">
-                                        <?= /* @noEscape */ $_helper->productAttribute(
-                                            $_product,
-                                            $_product->getShortDescription(),
-                                            'short_description'
-                                        ) ?>
-                                        <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
-                                           title="<?= /* @noEscape */ $_productNameStripped ?>"
-                                           class="action more"><?= $escaper->escapeHtml(__('Learn More')) ?></a>
-                                    </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

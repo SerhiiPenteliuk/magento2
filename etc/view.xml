@@ -7,6 +7,14 @@
                 <width>310</width>
                 <height>400</height>
             </image>
+            <image id="new_products_content_widget_grid_hover" type="hover_image">
+                <width>310</width>
+                <height>400</height>
+            </image>
+            <image id="hover_product_list" type="hover_image">
+                <width>640</width>
+                <height>800</height>
+            </image>
             <image id="category_page_grid" type="small_image">
                 <width>640</width>
                 <height>800</height>
@@ -14,6 +22,10 @@
             <image id="category_page_grid-1" type="small_image">
                 <width>640</width>
                 <height>800</height>
+            </image>
+            <image id="category_page_list" type="small_image">
+                <width>307</width>
+                <height>381</height>
             </image>
         </images>
     </media>
