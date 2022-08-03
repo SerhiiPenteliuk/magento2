@@ -9,7 +9,7 @@
         <referenceBlock name="footer_links" remove="true"> </referenceBlock>
         <referenceBlock name="copyright" remove="true"> </referenceBlock>
 
-        <move element="form.subscribe" destination="footer-container" before="-" />
+        <move element="form.subscribe" destination="page.wrapper" before="footer" />
 
         <referenceContainer name="footer">
             <block class="Magento\Cms\Block\Block" name="custom-footer" after="form.subscribe">
@@ -19,12 +19,26 @@
             </block>
         </referenceContainer>
 
+        <referenceContainer name="header-wrapper">
+            <block name="mega_menu" class="Snowdog\Menu\Block\Menu" after="logo">
+                <arguments>
+                    <argument name="menu" xsi:type="string">mega-menu</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
         <!--        header          -->
+
+        <referenceContainer name="header-wrapper">
+            <container name="user.activity" as="userActivity" label="User Activity" htmlTag="div" htmlClass="header-user-activity" after="navigation.sections" />
+        </referenceContainer>
+
+        <move element="authorization-link" destination="user.activity" before="-"/>
+        <move element="wish-list-link" destination="user.activity" after="authorization-link" />
+        <move element="top.search" destination="user.activity" after="-" />
+        <move element="minicart" destination="user.activity" before="top.search" />
         <referenceContainer name="header.panel.wrapper" remove="true"> </referenceContainer>
         <referenceContainer name="compare-link-wrapper" remove="true"> </referenceContainer>
-        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
-        <move element="authorization-link" destination="header-wrapper" after="navigation.sections"/>
-        <move element="wish-list-link" destination="header-wrapper" after="authorization-link"/>
 
     </body>
 </page>
