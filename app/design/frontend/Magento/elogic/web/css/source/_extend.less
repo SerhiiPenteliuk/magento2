@@ -1,0 +1,21 @@
+@import 'module/homepage/_main-banner.less';
+@import 'module/homepage/_categories-block.less';
+@import 'module/homepage/_brands.less';
+@import 'nice-select.less';
+@import 'module/mega-menu-header/_mega-menu.less';
+@import 'module/customViewModel/_subcategories.less';
+
+& when (@media-common = true) {
+    .abs-block-widget-title {
+        margin: 0 0 @indent__base;
+
+        strong {
+            font-size: @font-size__l;
+            font-weight: @font-weight__heavier;
+            vertical-align: middle;
+            letter-spacing: 1px;
+            color: @color-elogic__black;
+            cursor: pointer;
+        }
+    }
+}
