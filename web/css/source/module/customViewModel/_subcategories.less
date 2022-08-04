@@ -1,0 +1,36 @@
+& when (@media-common = true) {
+    .subcategories-row {
+        margin-top: 5%;
+
+        .subcat {
+            font-size: 18px;
+            padding-bottom: 18px;
+            letter-spacing: 1px;
+            color: #222;
+            cursor: pointer;
+            font-weight: 600;
+            overflow: hidden;
+            position: relative;
+            text-transform: uppercase;
+            word-break: break-all;
+            z-index: 1;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #eeeeee;
+            margin: 0 0 10px;
+
+            a {
+                .lib-link(
+                    @_link-color: @color-elogic__black,
+                    @_link-text-decoration: none,
+                    @_link-color-visited: @color-elogic__black,
+                    @_link-text-decoration-visited: none,
+                    @_link-color-hover: @color-elogic__black,
+                    @_link-text-decoration-hover: none,
+                    @_link-color-active: @color-elogic__black,
+                    @_link-text-decoration-active: none
+                );
+            }
+        }
+    }
+}
