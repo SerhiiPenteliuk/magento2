@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page>
+    <body>
+        <referenceContainer name="div.sidebar.main">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="elogic.viewmodel"
+                   before="-"
+                   template="Elogic_CustomModel::children_categories.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Elogic\CustomModel\ViewModel\SubcategoryViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

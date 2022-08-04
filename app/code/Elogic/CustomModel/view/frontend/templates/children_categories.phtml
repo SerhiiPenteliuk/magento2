@@ -1,0 +1,25 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+
+/** @var \Elogic\CustomModel\ViewModel\SubcategoryViewModel $viewModel */
+
+$viewModel = $block->getData("viewModel");
+?>
+
+<div class="subcategories-row">
+    <?php
+    $subcats = $viewModel->getSubcategories();
+    foreach ($subcats as $subcat) {
+        if ($subcat->getIsActive()) {
+            $subcat_url = $subcat->getUrl();
+            ?>
+            <div class="subcat">
+                <a href="<?php echo $subcat_url; ?>">
+                    <p><?php echo $subcat->getName(); ?></p>
+                </a>
+            </div>
+            <?php
+        }
+    } ?>
+</div>
+
