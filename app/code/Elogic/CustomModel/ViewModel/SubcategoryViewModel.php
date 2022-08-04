@@ -2,6 +2,7 @@
 
 namespace Elogic\CustomModel\ViewModel;
 
+
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class SubcategoryViewModel implements ArgumentInterface
