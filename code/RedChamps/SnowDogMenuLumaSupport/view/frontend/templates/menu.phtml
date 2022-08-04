@@ -1,0 +1,28 @@
+<?php /** @var \Snowdog\Menu\Block\Menu $block */ ?>
+<?php if ($block->getMenu()): ?>
+    <?php $menuClass = $block->getMenu()->getCssClass() ?>
+
+    <!-- added a navigation class and data-action attribute-->
+    <nav class="<?= $menuClass ?> navigation" data-action="navigation">
+        <!-- initializing the JS component "menu" -->
+        <ul class="<?= $menuClass ?>__list" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+            <?php foreach ($block->getNodes() as $node): ?>
+                <?php
+                $childrenLevel = $node->getLevel() + 1;
+                $children = $block->getNodes($childrenLevel, $node);
+                $node->setIsParent((bool) $children);
+                /** appending the parent class to show dropdown arrow*/
+                $parentClass = $children ? ' ' . $menuClass . '__item--parent parent ' : '';
+                $additionalClasses = $node->getClasses() ? ' ' . $node->getClasses() : '';
+                /** appending the level0 class to root navigation element */
+                $itemClasses = ' level0 ' . $parentClass . $additionalClasses;
+                ?>
+                <li class="<?= $menuClass ?>__item <?= $itemClasses ?>">
+                    <?php echo $block->renderMenuNode($node) ?>
+                    <?php echo $block->renderSubmenu($children, $node, $childrenLevel) ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
+        <div class="<?= $menuClass ?>__mobile-bg"></div>
+    </nav>
+<?php endif; ?>

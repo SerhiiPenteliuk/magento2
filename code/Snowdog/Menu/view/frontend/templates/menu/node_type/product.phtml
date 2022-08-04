@@ -1,0 +1,40 @@
+<?php /** @var \Snowdog\Menu\Block\NodeType\Product $block */ ?>
+<?php
+$nodeId = $block->getId();
+$class = $block->getMenuClass();
+$productUrl = $block->getProductUrl($nodeId);
+$productPrice = $block->getProductPrice($nodeId);
+$formattedProductPrice = $block->getFormattedProductPrice($nodeId);
+$productImage = $block->getProductImage($nodeId);
+$resizedProductImage = $block->getResizedProductImage($nodeId, '300', '300');
+$productTitle = $block->getProductTitle($nodeId);
+$productUrl = $productUrl ?: '#';
+$dataAttribute = '';
+$classLink = $block->getIsRoot() ? $class . '__link' : $class . '__inner-link';
+$title = $block->getTitle();
+$imageUrl = $block->getImageUrl();
+$imageAltText = $block->getImageAltText();
+
+if ($nodeId) {
+    $dataAttribute = ' data-menu="menu-' . $nodeId . '"';
+}
+
+if ($block->isCurrentProduct($nodeId)) {
+    $classLink .= ' current';
+}
+?>
+
+<a
+    href="<?= $productUrl ?>"
+    class="<?= $classLink ?>"
+    <?= $dataAttribute ?>
+>
+    <?= $title ?>
+</a>
+<?php if ($imageUrl): ?>
+    <img
+        src="<?= $block->escapeUrl($imageUrl); ?>"
+        alt="<?= $block->escapeHtmlAttr($imageAltText); ?>"
+        loading="lazy"
+    />
+<?php endif; ?>
