@@ -42,7 +42,7 @@
         }
     }
 
-        //PRODUCT IMAGE HOVER
+    //PRODUCT IMAGE HOVER
 
     .product-item-image {
         position: relative;
@@ -108,7 +108,9 @@
                 max-width: 100%;
                 width: 152px;
 
-                .page-products & {
+                .page-products &,
+                .products-related &,
+                .products-upsell & {
                     width: fit-content;
                 }
             }
@@ -191,6 +193,7 @@
 
             .price-box {
                 margin: @indent__s 0 @indent__m;
+                text-align: center;
 
                 .price {
                     font-weight: @font-weight__semibold;
@@ -198,7 +201,9 @@
 
                     .our-products &,
                     .bestsellers &,
-                    .page-products & {
+                    .page-products &,
+                    .products-related &,
+                    .products-upsell & {
                         font-size: 2rem;
                     }
                 }
@@ -315,6 +320,23 @@
                     float: left;
                 }
             }
+        }
+        .block-title {
+            h2 {
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+        }
+        .product-section-title {
+            .lib-font-size(18);
+            .lib-css(color, @color-header-dark);
+            .lib-css(font-weight, @font-weight__semibold);
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            border-bottom: 2px solid @color-elogic__black;
         }
     }
 
@@ -512,6 +534,10 @@
             margin: -@indent__s 0 @indent__s;
         }
 
+        .products-related & {
+            display: none;
+        }
+
         .actions-primary {
             .action.primary {
                 .our-products &,
@@ -666,7 +692,7 @@
     .page-layout-1column {
         .products-grid {
             .product-item {
-                width: 100%/6;
+                width: 100%/4;
             }
         }
     }

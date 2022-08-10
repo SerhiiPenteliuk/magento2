@@ -8,11 +8,13 @@
             .limiter {
                 float: right;
             }
+
             .main .pages {
                 display: inline-block;
                 position: relative;
                 z-index: 0;
             }
+
             .toolbar-amount,
             .limiter {
                 display: inline-block;
@@ -27,7 +29,6 @@
         }
     }
 
-    .product-social-links,
     .block-bundle-summary,
     .product-item,
     .table-comparison {
@@ -37,6 +38,43 @@
                 @_icon-font-content: @icon-wishlist-full,
                 @_icon-font-position: before
             );
+        }
+    }
+
+    //custom wishlist icon on product page
+    .product-social-links {
+        .action.towishlist {
+            &:extend(.abs-actions-addto all);
+            .lib-icon-font-symbol(
+                @_icon-font-content: @icon-wishlist-full,
+                @_icon-font-position: before
+            );
+            background: #fff none repeat scroll 0 0;
+            border: 1px solid #eee;
+            color: @color-elogic__black;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            line-height: 40px;
+            margin-right: 6px;
+            text-align: center;
+            transition: all .3s ease-out 0s;
+            width: 40px;
+
+            &:hover {
+                color: #fff;
+                background: #222;
+                border-color: #222;
+            }
+
+            span {
+                display: none;
+            }
+
+            &:before {
+                margin: 0;
+            }
         }
     }
 
@@ -117,6 +155,7 @@
         .block-title {
             &:extend(.abs-block-widget-title all);
         }
+
         .block-content {
             .empty {
                 color: @color-elogic__grey;
@@ -190,6 +229,7 @@
             }
         }
     }
+
     .products-grid.wishlist {
         .product-item-actions {
             .action {
@@ -322,6 +362,7 @@
                 @_icon-font-color-hover: @primary__color,
                 @_icon-font-color-active: @minicart-icons-color
             );
+
             &:before {
                 overflow: visible;
             }

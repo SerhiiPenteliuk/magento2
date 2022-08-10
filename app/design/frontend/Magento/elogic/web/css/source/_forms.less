@@ -21,6 +21,9 @@
         > .field,
         > .fields > .field {
             .lib-form-field();
+            .lib-vendor-prefix-display(flex);
+            justify-content: space-between;
+
             &.no-label {
                 > .label {
                     .lib-visually-hidden();
@@ -36,8 +39,23 @@
             }
 
             .label {
+                font-weight: @font-weight__regular; // custom
+                .lib-font-size(@font-size__s);
+
+
+
                 .column:not(.main) & {
                     font-weight: normal;
+                }
+            }
+
+            .control {
+                width: 75%;
+
+                textarea, input {
+                    border: 1px solid @color-elogic__white-light;
+                    height: 35px;
+                    line-height: 35px;
                 }
             }
 
@@ -128,6 +146,7 @@
 
     .field .tooltip {
         .lib-tooltip(right);
+
         .tooltip-content {
             min-width: 200px;
             white-space: normal;
@@ -143,12 +162,12 @@
         ~ .ui-datepicker-trigger {
             .lib-button-reset();
             .lib-icon-font(
-            @_icon-font-content: @icon-calendar,
-            @_icon-font-color: @primary__color__lighter,
-            @_icon-font-size: @icon-calendar__font-size,
-            @_icon-font-line-height: @icon-calendar__font-size,
-            @_icon-font-display: block,
-            @_icon-font-text-hide: true
+                @_icon-font-content: @icon-calendar,
+                @_icon-font-color: @primary__color__lighter,
+                @_icon-font-size: @icon-calendar__font-size,
+                @_icon-font-line-height: @icon-calendar__font-size,
+                @_icon-font-display: block,
+                @_icon-font-text-hide: true
             );
             display: inline-block;
             margin-top: -4px;

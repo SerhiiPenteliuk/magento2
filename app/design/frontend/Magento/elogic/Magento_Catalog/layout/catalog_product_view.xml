@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+<!--        connect in stock and sku in 1 block-->
+        <move element="product.info.stock.sku" destination="product.info.main" before="product.info.price" />
+
+<!--        move social links to product add form-->
+        <move element="product.info.social" destination="product.info.form.content" after="-" />
+
+<!--        deleted duplicated container-->
+        <referenceBlock name="product.info.details.wrapper" remove="true"/>
+
+<!--        deleted details block-->
+        <referenceBlock name="product.info.description.wrapper" remove="true"/>
+
+    </body>
+</page>

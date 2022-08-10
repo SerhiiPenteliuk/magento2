@@ -27,6 +27,18 @@
                 <width>307</width>
                 <height>381</height>
             </image>
+            <image id="product_page_image_small" type="thumbnail">
+                <width>120</width>
+                <height>150</height>
+            </image>
+            <image id="related_products_list" type="small_image">
+                <width>310</width>
+                <height>400</height>
+            </image>
+            <image id="upsell_products_list" type="small_image">
+                <width>310</width>
+                <height>400</height>
+            </image>
         </images>
     </media>
 </view>
