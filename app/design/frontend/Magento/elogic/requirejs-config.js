@@ -6,10 +6,12 @@ var config = {
 
     map: {
         '*': {
-            'selectize': 'js/jquery.nice-select'
+            'selectize': 'js/jquery.nice-select',
+            'CustomWidget': 'js/mywidget'
         }
     },
-    "shim": {
-        "selectize": ["jquery"]
+    shim: {
+        "selectize": ['jquery'],
+        'CustomWidget': ['jquery', 'jquery/ui']
     }
 };
