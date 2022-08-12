@@ -193,7 +193,11 @@
 
             .price-box {
                 margin: @indent__s 0 @indent__m;
-                text-align: center;
+
+                .products-related &,
+                .products-upsell & {
+                    text-align: center;
+                }
 
                 .price {
                     font-weight: @font-weight__semibold;
