@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Mirasvit\Giftr\Block\Item\Add
+ */
+?>
+<?php
+$isValidationNotRequired = $block->isValidationNotRequired();
+$isShowRegistryList = $block->isShowRegistryList();
+?>
+<li class="add-to-giftr">
+    <span class="separator">|</span>
+    <span id="giftr_loader" style="display:none;"><img src="<?php echo $block->getSkinUrl('images/opc-ajax-loader.gif') ?>" /></span>
+    <a href="#" onclick="return false;" id="addto-giftr" class="link-giftr"><?php echo $block->getLabel() ?></a>
+</li>
+
+<script type="text/javascript">
+    // <![CDATA[
+    Translator.add('Please select all required options before adding product to Gift Registry.','<?php echo __('Please select all required options before adding product to Gift Registry.') ?>');
+    Translator.add('Click <b>Configure</b> if you want to select options before adding product to registry or <b>Continue</b> to configure product later.','<?php echo __('Click <b>Configure</b> if you want to select options before adding product to registry or <b>Continue</b> to configure product later.') ?>');
+    Translator.add('Product has required options','<?php echo __('Product has required options') ?>');
+    Translator.add('Configure','<?php echo __('Configure') ?>');
+    Translator.add('Continue','<?php echo __('Continue') ?>');
+    // ]]>
+</script>

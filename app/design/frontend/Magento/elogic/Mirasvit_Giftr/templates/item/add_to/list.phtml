@@ -1,0 +1,39 @@
+<?php
+//add mageInit with modal widget popup
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Add
+ */
+?>
+
+<div class="giftr-list" style="display: none"
+     data-bind="scope: 'giftr-addto__form',
+     mageInit: {
+     'Magento_Ui/js/modal/modal': {
+        'type': 'popup',
+        'title': 'Select Gift Registry List',
+        'trigger': '#addto-giftr',
+        'buttons': [{
+                'text': 'Done',
+                'class': '',
+                'click': function () {
+                    this.closeModal();
+                }
+            }]
+        }
+     }">
+
+    <div class="registry-list" data-bind="visible: hasRegistries">
+        <div class="registries" data-bind="foreach: registries">
+            <label for="registry_>" class="label" data-bind="attr: { for: 'registry_' + value }">
+                <input type="checkbox" id="registry_" name="registries[]" value=""
+                       data-bind="checked: $parent.selected, value: value, attr: { id: 'registry_' + value }" />
+                <span data-bind="text: label"></span>
+            </label>
+        </div>
+        <a class="action primary" id="confirm-add-to-registry" href="#" data-bind="click: addProduct"><?= __('Add') ?></a>
+    </div>
+
+    <div data-bind="visible: isMessageVisible()">
+        <span data-bind="html: getMessage()"></span>
+    </div>
+</div>

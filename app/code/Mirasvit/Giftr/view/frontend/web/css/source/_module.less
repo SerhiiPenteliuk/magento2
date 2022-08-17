@@ -1,0 +1,1337 @@
+//
+// Common
+// ________________________
+
+//
+// Clearfix For clearing floats like a boss h5bp.com/q
+// ----------------------------------------------------
+.clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//
+// General styles for customer account section
+// -------------------------------------------
+.giftr-container {
+    .actions-toolbar,
+    .actions-toolbar-update {
+        .action.primary {
+            &:extend(.abs-button-l all);
+        }
+        .secondary {
+            .action.back {
+                display: block;
+            }
+        }
+    }
+}
+
+//
+// Styles for gift registry form (new and edit gift registry forms)
+// ----------------------------------------------------------------
+.gift-registry-form {
+    .fieldset.co-registrant-fieldset {
+        margin-bottom:40px;       
+    }
+
+    button.add-co-registrant {
+        margin: -20px 0px 40px 0px;
+    }
+}
+
+//
+// Styles for gift registry list at customer account
+// --------------------------------------------------
+.giftr-registry-table {
+    .lib-table();
+    .lib-table-bordered(@_table_type: horizontal);
+    .lib-table-background-color(@_table-head-background-color: #f0f0f0);
+    .a-center {
+        text-align: center;
+    }
+    tbody {
+        tr {
+            td {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.giftr-registry-index {
+    .actions-toolbar.giftr-actions {
+        .lib-actions-toolbar(@_actions-toolbar-actions-position: center);
+        .action.primary {
+            &:extend(.abs-button-l all);
+        }
+    }
+}
+
+//
+//  Mobile
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .giftr-registry-table {
+        .col {
+            &.actions,
+            &.image {
+                &:extend(.abs-col-no-prefix all);
+            }
+        }
+    }
+}
+
+//
+// Styles for navigation bar
+// --------------------------
+.giftr-navigation {
+    margin: 0 0 20px 0;
+    border-bottom: @border-width__base solid @border-color__base;
+    .giftr-links {
+        margin: auto 0 1px auto;
+        .item {
+            line-height: @tab-control__height;
+            margin: 0 -1px -1px 0;
+            strong {
+                .lib-css(background, @tab-control__active__background-color);
+                border: @border-width__base solid @border-color__base;
+                border-bottom: 0;
+                display: block;
+                font-weight: @tab-control__font-weight;
+                padding: 0 20px;
+                padding-bottom: 1px;
+            }
+            a {
+                .lib-css(background, @tab-control__background-color);
+                .lib-css(color, @tab-control__color);
+                border: @border-width__base solid @border-color__base;
+                display: block;
+                font-weight: @tab-control__font-weight;
+                padding: 0 20px;
+                &:hover {
+                    .lib-css(background, @tab-control__hover__background-color);
+                    .lib-css(text-decoration, @tab-control__hover__text-decoration);
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .giftr-navigation {
+        .giftr-links {
+            &:extend(.abs-add-clearfix-desktop all);
+            margin: auto 0 -1px auto;
+            .item {
+                float: left;
+                margin: 0 @tab-control__margin-right 0 0;
+                a {
+                    padding: @tab-control__padding-top @tab-control__padding-right;
+                }
+                strong {
+                    border-bottom: 0;
+                    margin-bottom: -1px;
+                    padding: @tab-control__padding-top @tab-control__padding-right @tab-control__padding-bottom+1 @tab-control__padding-left;
+                }
+            }
+        }
+    }
+}
+
+//
+// Styles for section Manage Gift Registry Items
+// ----------------------------------------------
+@message-info__background: #f4f4f4;
+.giftr-item-manage-block {
+    .message {
+        .lib-message(info);
+    }
+    .message.info {
+        padding-left: 45px;
+    }
+}
+
+//
+// Styles for sharing page
+// ------------------------
+.giftr-registry-share {
+    .share-icon {
+        width: 24px;
+        border-radius: 2px;
+        margin-left: 10px;
+    }
+}
+
+//
+// Styles for Gift Registry Add to link
+// -------------------------------------
+//.block-bundle-summary,
+//.product-item,
+//.table-comparison,
+.product-social-links {
+    .action.togiftr {
+        &:extend(.abs-actions-addto all);
+        .lib-icon-font(
+                @icon-present,
+            @_icon-font-position: before
+        );
+        display: inline;
+    }
+}
+.add-to-giftr {
+    display: inline-block;
+    position: relative;
+
+    div.giftr-dropdown {
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        text-align: left;
+        border: 1px solid #e2e2e2;
+        border-radius: 5px;
+        opacity: 0.9;
+        background-color: #fff;
+        margin-top: 3px;
+        padding: 10px;
+        width: inherit;
+        left: 0;
+
+        a {
+            border-right: none;
+        }
+
+        &:before {
+            border-color: transparent transparent #CCC transparent;
+            content: "";
+            position: absolute;
+            border-style: solid;
+            border-width: 5px;
+            height: 0;
+            width: 0;
+            top: -11px;
+            left: 30px;
+        }
+
+        label {
+            white-space: nowrap;
+            display: block;
+            border-bottom: 1px dashed #e2e2e2;
+            padding-top: 2px;
+            padding-bottom: 4px;
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                border: none;
+                padding-bottom: 0;
+            }
+        }
+
+        div.registry-list {
+            position: relative;
+        }
+    }
+
+    .field {
+        .lib-form-field(
+            @_type: block
+        );
+        .lib-form-element-choice(@_type: input-checkbox);
+    }
+}
+
+//
+// Styles for Gift Registry view page
+// -----------------------------------
+.giftr-italic {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-style: italic;
+}
+
+.giftr-registry-view {
+    .giftr-registry-view-general {
+        .clearfix();
+
+        margin-bottom: 40px;
+        
+        .heading {
+            display: block;
+            position: relative;
+            height: auto;
+
+            .heading-bg {
+                width: 100%;
+                overflow: hidden;
+                height: 100%;
+                position: absolute;
+            }
+
+            .event-icon {
+                font-size: 40px;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                line-height: 1;
+                z-index: 10;
+                width: 50px;
+                height: 50px;
+
+                .giftr-event-icon {
+                    background: rgba(240, 240, 240, 0.8);
+                    padding: 1px;
+                    border-radius: 50px;
+                    position: absolute;
+                    left: -26px;
+                    top: -40px;
+                    color: #fff;
+                }
+            }
+
+            .title {
+                position: relative;
+                width: 100%;
+                font-size: 18px;
+                font-style: italic;
+                z-index: 9;
+
+                .registrant {
+                    display: block;
+                    width: 50%;
+                    float: left;
+                    text-align: right;
+                    background: rgba(255, 255, 255, 0.9);
+                    position: relative;
+                    margin-bottom: 15px;
+
+                    .inline-img {
+                        display: none;
+                    }
+
+                    .registrant-content{
+                        display: none;
+                    }
+                    .registrant-content-common {
+                        display: block;
+                        padding: 10px 15px;
+                    }
+                }
+
+                .details {
+                    display: block;
+                    width: 50%;
+                    float: right;
+                    text-align: left;
+                    background: rgba(255, 255, 255, 0.9);
+                    position: relative;
+                    margin-bottom: 15px;
+
+                    .details-content {
+                        padding: 10px 15px;
+                    }
+                }
+            }
+
+            .image {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                margin-bottom: 10px;
+
+                img {
+                    max-height: 200px;
+                    position: relative;
+                }
+            }
+
+            .description {
+                position: relative;
+                width: 100%;
+                text-align: center;
+                font-style: italic;
+                font-size: 14px;
+                z-index: 9;
+
+                .description-content {
+                    padding: 10px 15px;
+                    background: rgba(255,255,255,0.8);
+                }
+            }
+
+            .info {
+                position: absolute;
+                top: 25%;
+                display: block;
+            }
+
+
+            /*table {
+                td, th {
+                    padding: 3px 10px;
+                    vertical-align: middle;
+                }
+                th {
+                    font-weight: bold;
+                }
+
+                td {
+                    font-family: Georgia, Times, "Times New Roman", serif;
+                    font-style: italic;
+                }
+            }*/
+        }
+    }
+
+    .products-grid {
+        margin: 20px 0 0;
+        .box-tocart {
+            margin: 10px 0;
+        }
+    }
+
+    .gift-wishes {
+        li {
+            list-style-type: none;
+        }
+
+        .gift-quote {
+            background: #f9f9f9;
+            border-left: 8px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C" "\201D";
+
+            &:before {
+                color: #ccc;
+                content: open-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-right: 0.25em;
+                vertical-align: -0.4em;
+            }
+
+            .gift-message {
+                display: inline;
+            }
+        }
+    }
+}
+
+.share-block {
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    width: 50px;
+    z-index: 10;
+
+    .share-icon {
+        width: 40px;
+        border-radius: 2px;
+        margin: 0px 0px 5px 10px;
+
+        &:hover {
+            box-shadow: 0px 0px 20px #f0f0f0;
+        }
+    }
+    
+}
+
+//
+// Styles for Gift Registry Search page
+// -------------------------------------
+.giftr-search-form {
+    .registry-search {
+        .lib-form-fieldset(
+            @_border: 1px,
+            @_margin: 0 0 20px
+        );
+        > .field {
+            .lib-form-field(
+                @_type: block,
+                @_column: true
+            );
+        }
+    }
+
+    .actions-toolbar-registry-search {
+        .lib-actions-toolbar(
+            @_actions-toolbar-actions-position: right
+        );
+    }
+}
+
+.giftr-result {
+    .registry-list {
+        .registry-name {
+            font-weight: bold;
+            text-align: center;
+        }
+        .description {
+            font-style: italic;
+            &:before {
+                content: open-quote;
+            }
+            &:after {
+                content: close-quote;
+            }
+        }
+        .registry-image img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+//
+// Styles for Manage Items page
+// ----------------------------
+.giftr-item-manage-block {
+    .actions-toolbar-update {
+        .lib-actions-toolbar(
+            @_actions-toolbar-actions-position: right,
+            @_actions-toolbar-margin: 0 0 20px
+        );
+    }
+}
+
+.products-grid.giftr {
+    .product {
+        &-item {
+            &-photo {
+                display: block;
+                margin-bottom: @indent__s;
+            }
+            &-name {
+                margin-top: 0;
+            }
+            &-inner {
+                > .fieldset {
+                    margin: 0 0 15px;
+                    > .field {
+                        margin: 0 0 10px;
+                    }
+                }
+
+                .product-item-actions {
+                    display: block;
+                }
+            }
+            .price-box {
+                margin: 0;
+            }
+            .comment-box {
+                .label {
+                    &:extend(.abs-visually-hidden all);
+                }
+            }
+            &-comment {
+                display: block;
+                height: 42px!important;
+                margin: @indent__s 0;
+            }
+            .box-tocart {
+                .tocart {
+                    &:extend(.abs-revert-secondary-size all);
+                }
+            }
+            .qty-received {
+                .input-text {
+                    width: 54px;
+                }
+            }
+            &-actions {
+                > * {
+                    margin-right: 15px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .box-tocart {
+                .control {
+                    display: table-cell;
+                    padding-right: 10px;
+                }
+                .actions-primary,
+                .actions-secondary {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .giftr-item-manage, .giftr-registry-view {
+        .giftr-container {
+            .products-grid {
+                .product-items {
+                    margin: 0;
+                }
+                .product-item {
+                    margin-left: calc(~"(100% - 4 * 23.439%) / 4");
+                    padding: 0;
+                    width: 23.439%;
+                    &:nth-child(4n+1) {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .products-grid.giftr {
+        .product {
+            &-item {
+                &-info {
+                    &:hover {
+                        .product-item-inner {
+                            display: block;
+                        }
+                    }
+                }
+                &-tooltip {
+                    display: inline-block;
+                }
+                &-actions {
+                    margin: @indent__s 0 0;
+                    > * {
+                        display: inline-block;
+                        margin-bottom: 7px;
+                        margin-top: 7px;
+                    }
+                }
+                .fieldset {
+                    display: table;
+                    .field.qty,
+                    .product-item-actions {
+                        display: table-cell;
+                        vertical-align: bottom;
+                    }
+                    .field.qty {
+                        padding-right: @indent__s;
+                    }
+                }
+                .box-tocart {
+                    .actions-primary {
+                        margin: 0;
+                    }
+                }
+                .tocart {
+                    width: auto;
+                }
+            }
+        }
+    }
+    .giftr-container {
+        .product {
+            &-item {
+                &-info {
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .giftr-item-manage, .giftr-registry-view {
+        .giftr.products-grid {
+            .product-item {
+                width: 32%;
+            }
+        }
+    }
+}
+
+@media (min-width: 320px) {
+    .giftr-item-manage, .giftr-registry-view {
+        .products-grid.giftr {
+            .product-item {
+                width: 49%;
+            }
+        }
+    }
+}
+.giftr-container {
+    #registry-list {
+        display: table;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .event-item-bgimage img {
+        width: 100%;
+    }
+    .item.event-item {
+        float: left;
+        display: table-cell;
+        margin: 0 2% 2% 0;
+        width: 32% !important;
+        padding-left: 0 !important;
+        padding: 0;
+        position: relative;
+        height: 200px;
+        overflow:hidden;
+        cursor: pointer;
+    }
+
+    .event-item-bgimage {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        z-index: 1;
+    }
+    .event-item-title{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        font-size: 14px;
+        font-style: italic;
+        z-index: 9;
+    }
+
+    .event-type-item-title{
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        font-size: 14px;
+        font-style: italic;
+        z-index: 9;
+    }
+
+    .item-title {
+        display: block;
+        width: 100%;
+        float: left;
+        padding: 5px 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1px;
+    }
+    .event-name {
+        font-size: 18px;
+    }
+    .event-item-inner {
+        position: absolute;
+        z-index: 11;
+        transition: height 1s;
+        height: 0px;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        width: 100%;
+    }
+    .event-item .event-icon {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        line-height: 1;
+        width: 50px;
+        height: 50px;
+        z-index: 10;
+    }
+    .event-item .event-icon .giftr-event-icon {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50px 0 50px 50px;
+        left: 0;
+        top: 0;
+        color: #fff;
+    }
+
+    .event-item:hover .event-item-inner {
+      height: 200px;
+      
+    }
+    .event-item-inner .description {
+        display:none;
+    }
+    .event-item:hover .event-item-inner .description {
+        display:block;
+        padding: 15px 20px;
+    }
+}
+
+.giftr-registry-type-general {
+    margin-bottom: 40px;
+
+    .heading {
+        display: block;
+        position: relative;
+        height: auto;
+
+        .heading-bg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+
+            img {
+            width: 100%;
+            }
+        }
+
+        .event-icon {
+            position: absolute;
+            top: 0;
+            line-height: 1;
+            width: 50px;
+            height: 50px;
+            z-index: 10;
+            right: 0;
+
+            .giftr-event-icon {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 5px;
+                border-radius: 50px 0 50px 50px;
+                position: absolute;
+                color: #fff;
+                top: 5px;
+                right: 5px;
+            }
+        }
+
+        .giftr-search-form-holder {
+            padding: 25px 75px;
+
+            .giftr-search-form {
+                position: relative;
+                background: rgba(255,255,255,0.8);
+                padding: 15px;
+
+                .registry-search {
+                    border: 1px;
+                    margin: 0 0 20px;
+                    padding: 0;
+                    letter-spacing: -.31em;
+
+                    .actions-toolbar-registry-search{
+                        text-align: right;
+                        width: 100%;
+
+                        .registry-action-btn {
+                            float: right;
+                            padding: 10px 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (min-width: 768px) {
+    .item.event-item:nth-child(3n+4){
+        clear:both;
+        }
+        .item.event-item:nth-child(3n){
+        margin:0;
+    } 
+}
+@media (max-width: 767px) {
+    .item.event-item {
+        float: left;
+        display: table-cell;
+        margin: 0 2% 2% 0;
+        width: 49% !important;
+        padding-left: 0 !important;
+        padding: 0;
+        position: relative;
+        max-height: 200px;
+    }
+    .item.event-item:nth-child(2n+4){
+        clear:both;
+    }
+    .item.event-item:nth-child(2n){
+        margin:0;
+    }  
+
+        ///////////////////////////////////////////
+
+.giftr-registry-view {
+    .giftr-registry-view-general {
+        .clearfix();
+
+        margin-bottom: 40px;
+        
+        .heading {
+            display: block;
+            position: relative;
+            height: auto;
+
+            .heading-bg {
+                overflow: hidden;
+                width: 100%;
+                position: absolute;
+                height: 100%;
+
+                img {
+                    min-height: 100%;
+                    width: auto;
+                    max-width: unset;
+                }
+            }
+
+            .event-icon {
+                display:none;
+            }
+
+            .title {
+                position: relative;
+                width: 100%;
+                font-size: 18px;
+                font-style: italic;
+
+                .registrant {
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    text-align: center;
+                    padding: 10px 0;
+                    margin-bottom: 1px;
+                    background: rgba(255, 255, 255, 0.8);
+
+                    .inline-img {
+                        display: block;
+                        float: left;
+                        width: 15%;
+
+                        img{
+                            height: 50px;
+                            padding-left: 10px;
+                        }
+                    }
+
+                    .registrant-content {
+                        display: none;
+                    }
+
+                    .registrant-content-common {
+                        display: block;
+                        width: 85%;
+                        float: left;
+                        padding: 15px 0;
+                        text-align: center;
+                    }
+                }
+
+                .details {
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    text-align: center;
+                    padding: 10px 0;
+                    margin-bottom: 15px;
+                    background: rgba(255, 255, 255, 0.8);
+                }
+            }
+
+            .image {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                margin-bottom: 10px;
+                padding: 0;
+
+                img {
+                    position: relative;
+                    max-height: 200px;
+                }
+            }
+
+            .description {
+                position: relative;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+                text-align: center;
+                font-style: italic;
+                font-size: 14px;
+                z-index: 9;
+                bottom: 0;
+                margin-bottom: 15px;
+            }
+
+            .share-block {
+                position: relative;
+                right: 10px;
+                top: 30%;
+                width: 100%;
+                text-align: center;
+                z-index: 10;
+
+                .share-icon {
+                    width: 40px;
+                    border-radius: 2px;
+                    margin: 0px 0px 5px 10px;
+
+                    &:hover {
+                        box-shadow: 0px 0px 20px #f0f0f0;
+                    }
+                }
+            }
+
+            .info {
+                position: absolute;
+                top: 25%;
+                display: block;
+            }
+        }
+    }
+
+    .products-grid {
+        margin: 20px 0 0;
+        .box-tocart {
+            margin: 10px 0;
+        }
+    }
+
+    .gift-wishes {
+        li {
+            list-style-type: none;
+        }
+
+        .gift-quote {
+            background: #f9f9f9;
+            border-left: 8px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C" "\201D";
+
+            &:before {
+                color: #ccc;
+                content: open-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-right: 0.25em;
+                vertical-align: -0.4em;
+            }
+
+            .gift-message {
+                display: inline;
+            }
+        }
+    }
+}
+
+    ///////////////////////////////////////////
+
+
+    .giftr-registry-type-general {
+        margin-bottom: 40px;
+
+        .heading {
+            display: block;
+            position: relative;
+            height: auto;
+
+            .heading-bg {
+                overflow: hidden;
+                width: 100%;
+                position: absolute;
+                height: 100%;
+
+                img {
+                    min-height: 100%;
+                    width: auto;
+                    max-width: unset;
+                }
+            }
+
+            .event-icon {
+                position: absolute;
+                top: 0;
+                line-height: 1;
+                width: 50px;
+                height: 50px;
+                z-index: 10;
+                right: 0;
+
+                .giftr-event-icon {
+                    background: rgba(255, 255, 255, 0.9);
+                    padding: 5px;
+                    border-radius: 50px 0 50px 50px;
+                    position: absolute;
+                    color: #fff;
+                    top: 5px;
+                    right: 5px;
+                }
+            }
+
+            .giftr-search-form-holder {
+                padding: 75px 15px 15px 15px;
+
+                .giftr-search-form {
+                    position: relative;
+                    background: rgba(255,255,255,0.8);
+                    padding: 15px;
+
+                    .registry-search {
+                        border: 1px;
+                        margin: 0 0 20px;
+                        padding: 0;
+                        letter-spacing: -.31em;
+
+                        .field {
+                            width: 100%;
+                        }
+
+                        .actions-toolbar-registry-search{
+                            text-align: right;
+                            width: 100%;
+
+                            .registry-action-btn {
+                                float: right;
+                                padding: 10px 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+@media (max-width: 422px) {
+    .item.event-item {
+        float: left;
+        display: table-cell;
+        margin: 0 0 15px 0;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding: 0;
+        position: relative;
+        max-height: 200px;
+    }
+    .giftr-registry-view .giftr-registry-view-general .heading {
+        .title {
+
+            font-size: 14px;
+
+            .registrant {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px 15px;
+            }
+
+            .details {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 15px;
+            }
+        }
+    }
+
+    ///////////////////////////////////////////
+
+.giftr-registry-view {
+    .giftr-registry-view-general {
+        .clearfix();
+
+        margin-bottom: 40px;
+        
+        .heading {
+            display: block;
+            position: relative;
+            height: auto;
+
+            .heading-bg {
+                overflow: hidden;
+                width: 100%;
+                position: absolute;
+                height: 100%;
+
+                img {
+                    min-height: 100%;
+                    width: auto;
+                    max-width: unset;
+                }
+            }
+
+            .event-icon {
+                display:none;
+            }
+
+            .title {
+                position: relative;
+                width: 100%;
+                font-size: 14px;
+                font-style: italic;
+
+                .registrant {
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    text-align: center;
+                    padding: 10px 0;
+                    margin-bottom: 1px;
+                    background: rgba(255, 255, 255, 0.8);
+
+                    .inline-img {
+                        display: block;
+                        float: left;
+                        width: 30%;
+
+                        img{
+                            height: 40px;
+                        }
+                    }
+
+                    .registrant-content {
+                        display: block;
+                        float: left;
+                        width: 70%;
+                    }
+
+                    .registrant-content-common {
+                        display: none;
+                    }
+                }
+
+                .details {
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    text-align: center;
+                    padding: 10px 0;
+                    margin-bottom: 15px;
+                    background: rgba(255, 255, 255, 0.8);
+                }
+            }
+
+            .image {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                margin-bottom: 10px;
+                padding: 0;
+
+                img {
+                    max-height: 200px;
+                    position: relative;
+                }
+            }
+
+            .description {
+                display: none;
+            }
+
+            .share-block {
+                position: relative;
+                right: 10px;
+                top: 30%;
+                width: 100%;
+                text-align: center;
+                z-index: 10;
+
+                .share-icon {
+                    width: 40px;
+                    border-radius: 2px;
+                    margin: 0px 0px 5px 10px;
+
+                    &:hover {
+                        box-shadow: 0px 0px 20px #f0f0f0;
+                    }
+                }
+            }
+
+            .info {
+                position: absolute;
+                top: 25%;
+                display: block;
+            }
+        }
+    }
+
+    .products-grid {
+        margin: 20px 0 0;
+        .box-tocart {
+            margin: 10px 0;
+        }
+    }
+
+    .gift-wishes {
+        li {
+            list-style-type: none;
+        }
+
+        .gift-quote {
+            background: #f9f9f9;
+            border-left: 8px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C" "\201D";
+
+            &:before {
+                color: #ccc;
+                content: open-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-right: 0.25em;
+                vertical-align: -0.4em;
+            }
+
+            .gift-message {
+                display: inline;
+            }
+        }
+    }
+}
+
+    ///////////////////////////////////////////
+
+
+     .giftr-registry-type-general {
+        .heading {
+            .giftr-search-form-holder {
+                .giftr-search-form {
+                    .registry-search {
+                        .actions-toolbar-registry-search{
+                            text-align: center;
+                            width: 100%;
+
+                            .registry-action-btn {
+                                float: none;
+                                padding: 10px 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+
+
+
+//
+// Styles for checkout page
+// -------------------------
+.field.giftr-field {
+    .control._with-tooltip {
+        input[type=checkbox] {
+            width: 15px;
+        }
+    }
+}

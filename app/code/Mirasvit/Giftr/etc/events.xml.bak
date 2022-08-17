@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
+    <event name="giftr_item_purchase_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onItemPurchase"/>
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onOrderPlaceAfter"/>
+    </event>
+    <event name="sales_order_save_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onOrderChangedStatus"/>
+    </event>
+    <event name="core_block_abstract_to_html_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer\Output" method="afterToHtml"/>
+    </event>
+    <event name="controller_action_postdispatch_checkout_onepage_saveBilling">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="afterSaveBilling"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_onepage_saveShipping">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="beforeSaveShipping"/>
+    </event>
+    <event name="core_block_abstract_to_html_before">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer\Output" method="beforeToHtml"/>
+    </event>
+    <event name="cataloginventory_stock_item_save_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer\Output" method="afterSaveItemStock"/>
+    </event>
+    <event name="checkout_cart_save_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onCheckoutCartSaveAfter"/>
+    </event>
+    <event name="sales_quote_remove_item">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onQuoteRemoveItem"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_cart_add">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="onAddToCart"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_onepage_index">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Model\Observer" method="beforeCheckoutOnepage"/>
+    </event>
+</config>

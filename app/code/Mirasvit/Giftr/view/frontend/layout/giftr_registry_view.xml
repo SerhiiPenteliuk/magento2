@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="giftr_container"/>
+    <head>
+        <title>Welcome to Gift Registry</title>
+    </head>
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Mirasvit\Giftr\Block\Registry\View" name="giftr.registry.meta" as="giftrMeta" template="Mirasvit_Giftr::registry/view/meta.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <block class="Mirasvit\Giftr\Block\Registry\Wish" name="giftr.wish" template="Mirasvit_Giftr::registry/view/wish.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="columns.top">
+            <block class="Mirasvit\Giftr\Block\Registry\View" name="giftr.item.info.general" as="giftrItemGeneral" template="Mirasvit_Giftr::registry/view/general.phtml">
+                <block class="Mirasvit\Giftr\Block\Registry\Share" name="giftr.item.info.share" as="giftrItemShare" template="Mirasvit_Giftr::registry/view/share.phtml"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="giftr.container">
+            <block class="Mirasvit\Giftr\Block\Registry\View" name="giftr.registry.view" as="giftr.registry.view" template="Mirasvit_Giftr::registry/view.phtml" cacheable="false">
+                <block class="Magento\Framework\View\Element\Template" name="giftr.navigation" as="giftrNav" template="Mirasvit_Giftr::navigation.phtml">
+                    <arguments>
+                        <argument name="items" xsi:type="array">
+                            <item name="*/registry/edit/" xsi:type="string" translate="true">My Gift Registry</item>
+                            <item name="*/item/manage/" xsi:type="string" translate="true">Manage Items</item>
+                            <item name="*/registry/share/" xsi:type="string" translate="true">Share with Friends</item>
+                            <item name="*/registry/view/" xsi:type="string" translate="true">Guest View</item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Mirasvit\Giftr\Block\Item\Manage" name="giftr.item.info" as="giftrItemInfo" template="Mirasvit_Giftr::registry/view/items.phtml">
+                    <block class="Mirasvit\Giftr\Block\Item\Options" name="giftr.item.options" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

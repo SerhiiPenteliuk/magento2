@@ -1,0 +1,38 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Adminhtml\Sales\Order\View\Giftoptions
+ */
+?>
+<?php if ($block->isAllowed()): ?>
+    <div>
+        <div class="admin__page-section-item gift-registry">
+            <div class="admin__page-section-title">
+                <span class="title"><?php echo $block->getTitle() ?></span>
+            </div>
+            <div class="admin__page-section-item-content order-tables">
+                <dl class="gift-registry-info item-options">
+                    <dt><?php echo __('Registrant') ?>:</dt>
+                    <dd><strong><?php echo $block->getRegistrantName() ?></strong></dd>
+
+                    <?php if ($block->getRegistry()->getCoFirstname()): ?>
+                        <dt><?php echo __('Co-Registrant') ?>:</dt>
+                        <dd><strong><?php echo $block->getCoRegistrantName() ?></strong></dd>
+                    <?php endif ?>
+
+                    <?php if ($block->getRegistry()->getEventAt()): ?>
+                        <dt><?php echo __('Event Date') ?></dt>
+                        <dd><strong><?php echo $block->getEventDate() ?></strong></dd>
+                    <?php endif ?>
+
+                    <?php if ($block->getRegistry()->getLocation()): ?>
+                        <dt><?php echo __('Location') ?></dt>
+                        <dd><strong><?php echo $block->getRegistry()->getLocation() ?></strong></dd>
+                    <?php endif ?>
+
+                    <dt><?php echo __('Link') ?></dt>
+                    <dd><strong><?php echo $block->getRegistryLink() ?></strong></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+<?php endif ?>

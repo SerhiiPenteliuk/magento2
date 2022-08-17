@@ -1,0 +1,74 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\Listing
+ */
+?>
+<div class="table-wrapper">
+    <?php if ($block->getCustomerRegistries()->count()): ?>
+        <table class="data table giftr-registry-table">
+            <thead>
+                <tr class="first last">
+                    <th scope="col" class="col"></th>
+                    <th scope="col" class="col"><?php echo __('Registry ID') ?></th>
+                    <th scope="col" class="col"><?php echo __('Title') ?></th>
+                    <th scope="col" class="col"><?php echo __('Event') ?></th>
+                    <th scope="col" class="col"><?php echo __('Event Date') ?></th>
+                    <th scope="col" class="a-center col"><?php echo __('Actions') ?></th>
+                </tr>
+            </thead>
+            <tbody data-bind="scope: 'giftr_delete'">
+            <?php foreach ($block->getCustomerRegistries() as $registry):?>
+                <?php $options = ['id' => $registry->getId()] ?>
+                <tr>
+                    <td data-th="<?= __('Image')?>" class="col image">
+                        <img src="<?php echo $registry->getImageUrl(150, 75) ?>" width="150px" height="75px"
+                             alt="<?php echo $registry->getSafe('name')?>"/>
+                    </td>
+                    <td data-th="<?= __('Registry ID')?>"><i><small><?php echo $registry->getSafe('uid') ?></small></i></td>
+                    <td data-th="<?= __('Title')?>">
+                        <a href="<?php echo $block->getUrl('*/*/edit', $options) ?>">
+                            <?php echo $registry->getSafe('name') ?>
+                        </a>
+                    </td>
+
+                    <td data-th="<?= __('Event')?>"><?php echo($registry->getType()) ? $registry->getType()->getName() : '' ?></td>
+
+                    <td data-th="<?= __('Event Date')?>"><?php echo date('M d, Y', strtotime($registry->getEventAt())) ?></td>
+
+                    <td data-th="<?= __('Actions')?>" class="col actions a-center">
+                        <a href="<?php echo $block->getUrl('*/*/view', $options + ['uid' => $registry->getSafe('Uid')]) ?>"
+                           class="action">
+                            <?php echo __('Preview') ?>
+                        </a>
+                        <a class="action" href="<?php echo $block->getUrl('*/*/edit', $options) ?>">
+                            <?php echo __('Edit') ?>
+                        </a>
+                        <a class="action" href="<?php echo $block->getUrl('*/item/manage', $options) ?>">
+                            <?php echo __('Items') ?>
+                        </a>
+                        <a class="action" href="<?php echo $block->getUrl('*/*/share', $options) ?>">
+                            <?php echo __('Share') ?>
+                        </a>
+                        <a class="action" data-bind="click: deleteRegistry.bind($data, <?= $options['id'] ?>)" href="#">
+                            <?php echo __('Delete') ?>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <div class="message info empty"><span><?php echo __('You have no registries.') ?></span></div><br/>
+    <?php endif ?>
+</div>
+<div class="actions-toolbar giftr-actions">
+    <div class="primary">
+        <button class="primary action add" type="button" title="<?php echo __('Create Gift Registry') ?>"
+                onclick="window.location.href='<?php echo $block->getUrL('*/*/new', ['_secure' => true]) ?>';">
+            <span><?php echo __('Create Gift Registry') ?></span>
+        </button>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    <?php echo \Zend_Json_Encoder::encode($block->getJsConfig()) ?>
+</script>

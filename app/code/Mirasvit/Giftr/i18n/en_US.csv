@@ -1,0 +1,321 @@
+"Registry Form Fields","Registry Form Fields"
+"Add New Registry Form Field","Add New Registry Form Field"
+Save,Save
+"Save & Continue Edit","Save & Continue Edit"
+"Edit Registry Form Field '%1'","Edit Registry Form Field '%1'"
+"Create New Registry Form Field","Create New Registry Form Field"
+"General Information","General Information"
+Title,Title
+"[STORE VIEW]","[STORE VIEW]"
+Code,Code
+"Internal field. Can contain only letters, digits and underscore. Should be unique.","Internal field. Can contain only letters, digits and underscore. Should be unique."
+Type,Type
+"Options list","Options list"
+"Enter each value from the new line using format: <br>value1 | label1<br>value2 | label2","Enter each value from the new line using format: <br>value1 | label1<br>value2 | label2"
+Description,Description
+Active,Active
+No,No
+Yes,Yes
+"Sort Order","Sort Order"
+ID,ID
+"Field Type","Field Type"
+Disabled,Disabled
+Enabled,Enabled
+"Change status","Change status"
+Status,Status
+Delete,Delete
+"Are you sure?","Are you sure?"
+Items,Items
+"Product Name","Product Name"
+QTY,QTY
+"Ordered QTY","Ordered QTY"
+"Received QTY","Received QTY"
+Priority,Priority
+Note,Note
+"Add Product","Add Product"
+Product,Product
+"Select Product","Select Product"
+Registries,Registries
+"Event Types","Event Types"
+"Item Priorities","Item Priorities"
+"Registry Form Sections","Registry Form Sections"
+Settings,Settings
+Prioritys,Prioritys
+"Add New Priority","Add New Priority"
+"Edit Priority '%1'","Edit Priority '%1'"
+"Create New Priority","Create New Priority"
+"Edit Registry '%1'","Edit Registry '%1'"
+"Create New Registry","Create New Registry"
+Public,Public
+Website,Website
+Image,Image
+Event,Event
+Date,Date
+Location,Location
+Registrant,Registrant
+Customer,Customer
+"First Name","First Name"
+"Middle Name","Middle Name"
+"Last Name","Last Name"
+Email,Email
+Co-Registrant,Co-Registrant
+Shipping,Shipping
+"Shipping Address","Shipping Address"
+General,General
+"Order #","Order #"
+Total,Total
+"Purchased On","Purchased On"
+"Bill to Name","Bill to Name"
+"Ship to Name","Ship to Name"
+"Order Status","Order Status"
+"Order Total","Order Total"
+Action,Action
+View,View
+Orders,Orders
+"Item Id","Item Id"
+Name,Name
+SKU,SKU
+Products,Products
+"Registrant Name","Registrant Name"
+"Number Of Orders","Number Of Orders"
+"Created At","Created At"
+Archived,Archived
+Visible,Visible
+Link,Link
+"Guest View","Guest View"
+"Gift Registry <strong>""%1""</strong>","Gift Registry <strong>""%1""</strong>"
+"Add New Registry Form Section","Add New Registry Form Section"
+"Edit Registry Form Section '%1'","Edit Registry Form Section '%1'"
+"Create New Registry Form Section","Create New Registry Form Section"
+"Section Fields","Section Fields"
+"Add New Event Type","Add New Event Type"
+"Edit Event Type '%1'","Edit Event Type '%1'"
+"Create New Event Type","Create New Event Type"
+"Type information","Type information"
+"Form Sections","Form Sections"
+"Helper for gift registry options rendering doesn't implement required interface.","Helper for gift registry options rendering doesn't implement required interface."
+"Add Co-Registrant","Add Co-Registrant"
+"Remove Co-Registrant","Remove Co-Registrant"
+"Create New","Create New"
+"Gift Registry %1","Gift Registry %1"
+Home,Home
+"Home Page","Home Page"
+"Giftr Registry Search","Giftr Registry Search"
+"Gift Registry Search","Gift Registry Search"
+"New Registry Form Field","New Registry Form Field"
+"Field  Manager","Field  Manager"
+"Field Manager","Field Manager"
+"Add Registry Form Field ","Add Registry Form Field "
+"Add Registry Form Field","Add Registry Form Field"
+"System fields cannot be deleted.","System fields cannot be deleted."
+"Registry Form Field was successfully deleted","Registry Form Field was successfully deleted"
+Fields,Fields
+"Edit Registry Form Field ","Edit Registry Form Field "
+"The Registry Form Field does not exist.","The Registry Form Field does not exist."
+"Please select Registry Form Field(s)","Please select Registry Form Field(s)"
+"System fields cannot be disabled.","System fields cannot be disabled."
+"Total of %d record(s) were successfully updated","Total of %d record(s) were successfully updated"
+"Total of %d record(s) were successfully deleted","Total of %d record(s) were successfully deleted"
+"The field: ""%1"" is system and cannot be changed.","The field: ""%1"" is system and cannot be changed."
+"Registry Form Field was successfully saved","Registry Form Field was successfully saved"
+"Unable to find Registry Form Field to save","Unable to find Registry Form Field to save"
+"Item was successfully deleted","Item was successfully deleted"
+"Edit Item '%1'","Edit Item '%1'"
+"Gift Registry Products","Gift Registry Products"
+"Edit Item ","Edit Item "
+"The Item does not exist.","The Item does not exist."
+"Please select Item(s)","Please select Item(s)"
+"Total of %1 record(s) were successfully deleted","Total of %1 record(s) were successfully deleted"
+"Item was successfully saved","Item was successfully saved"
+"Unable to find Item to save","Unable to find Item to save"
+"New Priority","New Priority"
+"Priority  Manager","Priority  Manager"
+"Priority Manager","Priority Manager"
+"Add Priority ","Add Priority "
+"Add Priority","Add Priority"
+"Priority was successfully deleted","Priority was successfully deleted"
+Priorities,Priorities
+"Edit Priority ","Edit Priority "
+"The Priority does not exist.","The Priority does not exist."
+"Please select Priority(s)","Please select Priority(s)"
+"Priority was successfully saved","Priority was successfully saved"
+"Unable to find Priority to save","Unable to find Priority to save"
+"New Gift Registry","New Gift Registry"
+"Gift Registry Manager","Gift Registry Manager"
+"Add Gift Registry","Add Gift Registry"
+"Registry was successfully deleted","Registry was successfully deleted"
+"The Registry does not exist.","The Registry does not exist."
+"Gift Registries","Gift Registries"
+"Please select Registry(s)","Please select Registry(s)"
+"Registry was successfully saved","Registry was successfully saved"
+"Unable to find Registry to save","Unable to find Registry to save"
+"New Registry Form Section","New Registry Form Section"
+"Section  Manager","Section  Manager"
+"Section Manager","Section Manager"
+"Add Registry Form Section ","Add Registry Form Section "
+"Add Registry Form Section","Add Registry Form Section"
+"System sections cannot be deleted.","System sections cannot be deleted."
+"Registry Form Section was successfully deleted","Registry Form Section was successfully deleted"
+Sections,Sections
+"Edit Registry Form Section ","Edit Registry Form Section "
+"The Registry Form Section does not exist.","The Registry Form Section does not exist."
+"Please select Registry Form Section(s)","Please select Registry Form Section(s)"
+"Registry Form Section was successfully saved","Registry Form Section was successfully saved"
+"Unable to find Registry Form Section to save","Unable to find Registry Form Section to save"
+"New Event Type","New Event Type"
+"Type  Manager","Type  Manager"
+"Type Manager","Type Manager"
+"Add Event Type ","Add Event Type "
+"Add Event Type","Add Event Type"
+"System types cannot be deleted.","System types cannot be deleted."
+"Event Type was successfully deleted","Event Type was successfully deleted"
+"Edit Event Type ","Edit Event Type "
+"The Event Type does not exist.","The Event Type does not exist."
+"Please select Event Type(s)","Please select Event Type(s)"
+"Event Type was successfully saved","Event Type was successfully saved"
+"Unable to find Event Type to save","Unable to find Event Type to save"
+"Please select a registry","Please select a registry"
+"%1 has been added to your Gift Registry.
+                            Click <a href=""%2"">here</a> to view your Gift Registry(ies).","%1 has been added to your Gift Registry.
+                            Click <a href=""%2"">here</a> to view your Gift Registry(ies)."
+"Please, log in before adding products to Gift Registry.","Please, log in before adding products to Gift Registry."
+"Cannot specify product.","Cannot specify product."
+"Please, specify the registry to which to assign this product.","Please, specify the registry to which to assign this product."
+"Product successfully added to cart. <a href=""%1"">Go to Cart</a>","Product successfully added to cart. <a href=""%1"">Go to Cart</a>"
+"Selected required option(s) are not available: %1.","Selected required option(s) are not available: %1."
+"There was a problem during adding product to cart.","There was a problem during adding product to cart."
+"Cannot load gift registry item","Cannot load gift registry item"
+"Cannot configure product","Cannot configure product"
+"Product was successfully deleted","Product was successfully deleted"
+"Gift Registry Items successfully updated","Gift Registry Items successfully updated"
+"Gift Registry is empty. Please add products first","Gift Registry is empty. Please add products first"
+"%1$s has been updated in your gift registry.","%1$s has been updated in your gift registry."
+"An error occurred while updating giftr registry.","An error occurred while updating giftr registry."
+"Registry Successfully Deleted","Registry Successfully Deleted"
+"Problem loading registry. Please try again","Problem loading registry. Please try again"
+"The requested Gift Registry doesn't exist.","The requested Gift Registry doesn't exist."
+"Registry successfully saved","Registry successfully saved"
+"Insufficient Data Provided","Insufficient Data Provided"
+"The address has been saved.","The address has been saved."
+"There was a problem initializing the gift registry","There was a problem initializing the gift registry"
+"Email address can't be emtpy.","Email address can't be emtpy."
+"Please enter a valid email address.","Please enter a valid email address."
+"Your Giftr Registry has been shared","Your Giftr Registry has been shared"
+"New Address","New Address"
+Text,Text
+"Multi-line text","Multi-line text"
+Checkbox,Checkbox
+"Drop-down list","Drop-down list"
+"Open for public view","Open for public view"
+"Open for private view only","Open for private view only"
+"This product(s) is currently out of stock","This product(s) is currently out of stock"
+"An item option with code %1 already exists.","An item option with code %1 already exists."
+"Invalid item option format.","Invalid item option format."
+"Your shopping cart already contains 1 or more items.Please complete your purchase or clear the cart prior to adding gift registry items.<a href=""%1"">View Shopping Cart</a>","Your shopping cart already contains 1 or more items.Please complete your purchase or clear the cart prior to adding gift registry items.<a href=""%1"">View Shopping Cart</a>"
+"Your shopping cart already contains 1 or more items from Gift Registry.Please complete your purchase or clear the cart prior to adding new items.<a href=""%1"">View Shopping Cart</a>","Your shopping cart already contains 1 or more items from Gift Registry.Please complete your purchase or clear the cart prior to adding new items.<a href=""%1"">View Shopping Cart</a>"
+"-- Please Select --","-- Please Select --"
+"-- All --","-- All --"
+"-- Select Priority --","-- Select Priority --"
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)"
+"File uploaded exceeds maximum upload size (10MB)","File uploaded exceeds maximum upload size (10MB)"
+"- Disable these emails -","- Disable these emails -"
+"We can't create the Gift Registry right now.","We can't create the Gift Registry right now."
+"Event Date","Event Date"
+"Gift Registry Type:","Gift Registry Type:"
+"Gift Registry ID:","Gift Registry ID:"
+"Please select all required options before adding product to Gift Registry.","Please select all required options before adding product to Gift Registry."
+"Click <b>Configure</b> if you want to select options before adding product to registry or <b>Continue</b> to configure product later.","Click <b>Configure</b> if you want to select options before adding product to registry or <b>Continue</b> to configure product later."
+"Product has required options","Product has required options"
+Configure,Configure
+Continue,Continue
+Add,Add
+"Please","Please"
+"log in","log in"
+"before adding products to registry","before adding products to registry"
+"You have no Gift Registries yet.","You have no Gift Registries yet."
+"Create Gift Registry","Create Gift Registry"
+"Reminder: Don't forget to share your registry with friends
+                and family via e-mail, facebook or twitter. <a href=""%1"">Click here to get started</a>.","Reminder: Don't forget to share your registry with friends
+                and family via e-mail, facebook or twitter. <a href=""%1"">Click here to get started</a>."
+"Update Items","Update Items"
+"There are no items here.","There are no items here."
+"Please, browse catalog and add products to this registry.","Please, browse catalog and add products to this registry."
+"Back To Registry List","Back To Registry List"
+Comment,Comment
+"Add your notes here...","Add your notes here..."
+Priority:,Priority:
+"Desired Qty:","Desired Qty:"
+Qty,Qty
+"Out Of Stock","Out Of Stock"
+"Add to Cart","Add to Cart"
+"Add to Compare","Add to Compare"
+"Invoiced/Received Qty:","Invoiced/Received Qty:"
+Remove,Remove
+"Options Details","Options Details"
+"View Product","View Product"
+"* Required Fields","* Required Fields"
+Back,Back
+"Gift Registry Type","Gift Registry Type"
+"Event Type Name","Event Type Name"
+Next,Next
+"Registry ID","Registry ID"
+Actions,Actions
+Preview,Preview
+Edit,Edit
+Share,Share
+"You have no registries.","You have no registries."
+"Create Gift Registry","Create Gift Registry"
+"%1: <a href=""%2"" target=""_blank"">%3</a>. %4<br>%5 %6.","%1: <a href=""%2"" target=""_blank"">%3</a>. %4<br>%5 %6."
+"Email Gift Registry to your Friends","Email Gift Registry to your Friends"
+"Enter comma separated list of emails","Enter comma separated list of emails"
+"Enter message for your friends","Enter message for your friends"
+"Send Gift Registry","Send Gift Registry"
+"Desired Qty","Desired Qty"
+"Invoiced/Received Qty","Invoiced/Received Qty"
+Complete,Complete
+"Gift Registry","Gift Registry"
+"You can find public gift registries by registrant's first and last name","You can find public gift registries by registrant's first and last name"
+"Or you can access private gift registries by gift registry identifier","Or you can access private gift registries by gift registry identifier"
+Reset,Reset
+Search,Search
+"Your search returns no results.","Your search returns no results."
+"Thank you again","Thank you again"
+"Are you sure you want to remove this product from your Gift Registry?","Are you sure you want to remove this product from your Gift Registry?"
+"Save Address","Save Address"
+Cancel,Cancel
+"Gift Registry Image Placeholder","Gift Registry Image Placeholder"
+"Show Middle Name","Show Middle Name"
+"Set gift registry item status to 'Invoiced' when order receives status","Set gift registry item status to 'Invoiced' when order receives status"
+"Set gift registry item status to 'Received' when order receives status","Set gift registry item status to 'Received' when order receives status"
+"Display public gift registries in the search result by default","Display public gift registries in the search result by default"
+"Show Gift Messages on the Gift Registry Guest page","Show Gift Messages on the Gift Registry Guest page"
+"Hide Expired Events","Hide Expired Events"
+"Email Sender","Email Sender"
+"Owner Notification Template","Owner Notification Template"
+"Gift Registry Sharing Notification Template","Gift Registry Sharing Notification Template"
+"Out Of Stock Item Notification Template","Out Of Stock Item Notification Template"
+"Edit Registry","Edit Registry"
+"My Gift Registry","My Gift Registry"
+"Gift Registry Shipping Address","Gift Registry Shipping Address"
+"For delivery questions.","For delivery questions."
+"Shipping Address Select","Shipping Address Select"
+"-- Please select customer --","-- Please select customer --"
+"-- Please Select --","-- Please Select --"
+"Add New Address","Add New Address"
+"You can share gift registry using: <a href=""%1"" target=""_blank"">this link</a>. Just send it to your friends.<br>Your friends can find your gift registry by %2.","You can share gift registry using: <a href=""%1"" target=""_blank"">this link</a>. Just send it to your friends.<br>Your friends can find your gift registry by %2."
+"The product you have added to your Gift Registry ""%registry_name"" is out of stock now.","The product you have added to your Gift Registry ""%registry_name"" is out of stock now."
+"View My Gift Registry items","View My Gift Registry items"
+"View all Gift Registry items","View all Gift Registry items"
+"Thank you","Thank you"
+"Thank you again","Thank you again"
+"Items from Gift Registry","Items from Gift Registry"
+"%registrant_name sent you this","%registrant_name sent you this"
+"Add all items to shopping cart","Add all items to shopping cart"
+"Manage Items","Manage Items"
+"Share with Friends","Share with Friends"
+"Gift Registry item out of stock","Gift Registry item out of stock"
+"New order for your Gift Registry %registry_name","New order for your Gift Registry %registry_name"
+"Take a look at %customer_name's Gift Registry","Take a look at %customer_name's Gift Registry"
+"If you want to buy this product as a gift please go to","If you want to buy this product as a gift please go to"
+"Gift Registry Page","Gift Registry Page"
+"New registry type will be created, but admin should check and activate it. Meanwhile your registry assigned to this type will be inactive.","New registry type will be created, but admin should check and activate it. Meanwhile your registry assigned to this type will be inactive."

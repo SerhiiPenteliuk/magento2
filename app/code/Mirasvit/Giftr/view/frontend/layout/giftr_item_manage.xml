@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <update handle="giftr_navigation"/>
+    <update handle="giftr_container"/>
+    <head>
+        <title>Manage Gift Registry Items</title>
+    </head>
+    <body>
+        <referenceContainer name="giftr.container">
+            <block class="Mirasvit\Giftr\Block\Item\Manage" name="giftr.item.manage" as="giftrItemManage" template="Mirasvit_Giftr::item/manage.phtml" cacheable="false">
+                <block class="Mirasvit\Giftr\Block\Item\Manage" name="giftr.item.items" as="giftrItemItems" template="Mirasvit_Giftr::item/manage/items.phtml" cacheable="false">
+                    <action method="setMode"><argument name="mode" xsi:type="string">grid</argument></action>
+                    <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                        <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="setToolbarBlockName">
+                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                    </action>
+                    <block class="Mirasvit\Giftr\Block\Item\Options" name="giftr.item.options" cacheable="false" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

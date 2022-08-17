@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="giftr_container"/>
+    <head>
+        <title>Gift Registry Search</title>
+    </head>
+    <body>
+        <referenceContainer name="sidebar.additional">
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        </referenceContainer>
+        <referenceContainer name="giftr.container">
+            <block class="Mirasvit\Giftr\Block\Search\Result" name="giftr.search.result" as="giftrSearchResult" template="Mirasvit_Giftr::search/form/result.phtml" cacheable="false">
+                <block class="Mirasvit\Giftr\Block\Search\RegistryType" name="giftr.search.registry.type" as="giftrSearchRegistryType" template="Mirasvit_Giftr::search/form/registryType.phtml"    cacheable="false">
+                </block>
+                <block class="Mirasvit\Giftr\Block\Search\Result" name="giftr.search.form" as="gitrSearchForm" template="Mirasvit_Giftr::search/form.phtml" cacheable="false">
+                    <!--<block class="page/html_pager" name="pager" />-->
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

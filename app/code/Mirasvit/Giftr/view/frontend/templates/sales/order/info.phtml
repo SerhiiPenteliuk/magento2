@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Mirasvit\Giftr\Block\Sales\Order\Info
+ */
+?>
+<?php if ($block->isAllowed()): ?>
+    <div class="block block-order-details-view">
+        <div class="block-content">
+            <div class="box box-order-gift-registry">
+                <strong class="box-title"><span><?php echo __('Gift Registry') ?></span></strong>
+                <div class="box-content">
+                    <a href="<?php echo $block->getRegistry()->getViewUrl() ?>">
+                        <?php echo $block->getRegistry()->getName() ?>
+                    </a><br/>
+                    <?php echo $block->getRegistry()->getRegistrantAndCoName() ?>
+                    <?php if ($block->getRegistry()->getEventAt()): ?>
+                        <br/><?php echo $block->getEventDate() ?>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif ?>

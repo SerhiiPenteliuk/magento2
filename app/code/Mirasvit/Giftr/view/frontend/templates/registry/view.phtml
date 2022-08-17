@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\View
+ */
+?>
+<?php
+$registry = $block->getRegistry();
+?>
+
+<?php if ($block->getCustomer()->getId() == $registry->getCustomerId()
+    && $block->getCustomerSession()->isLoggedIn()): ?>
+    <?php echo $block->getChildHtml('giftrNav') ?>
+<?php endif ?>
+
+<div class="giftr-registry-view">
+    <?php echo $block->getChildHtml('giftrItemGeneral') ?>
+
+    <input type="hidden" name="registry_id" value="<?php echo $registry->getId() ?>"/>
+    <div data-bind="scope: 'giftr__form'" class="products-grid giftr">
+        <ol class="giftr-items product-items">
+            <?php echo $block->getChildHtml('giftrItemInfo') ?>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_save_commit_after">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Observer\UpdatePurchasedItemQty"/>
+    </event>
+    <event name="sales_order_item_save_before">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Observer\AddOrderToPurchase"/>
+    </event>
+    <event name="catalog_product_save_before">
+        <observer name="m_giftr_observer" instance="\Mirasvit\Giftr\Observer\OutOfStockEmail"/>
+    </event>
+    <event name="sales_order_save_after">
+        <observer name="m_giftr_sales_order_save_afterr" instance="\Mirasvit\Giftr\Observer\UpdateOrderGrid"/>
+    </event>
+    <event name="sales_order_payment_save_after">
+        <observer name="m_giftr_observer_commit_after" instance="\Mirasvit\Giftr\Observer\GiftrItemOrderPlace"/>
+    </event>
+</config>

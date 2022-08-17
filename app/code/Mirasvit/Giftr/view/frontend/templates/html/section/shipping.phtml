@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Html\Section\Shipping
+ */
+?>
+<fieldset class="fieldset" data-bind="scope: 'giftr__form'">
+    <legend class="legend"><span><?php echo $block->getName() ?></span></legend>
+    <?php foreach ($block->getFields() as $field): ?>
+        <div class="field <?php echo $field->getId() ?> required"
+             style="display: <?php echo ($field->getField()->getIsVisible()) ? 'block' : 'none' ?>">
+            <label for="<?php echo $field->getId() ?>" class="label"><span><?php echo __($field->getTitle()) ?></span></label>
+            <div class="control">
+                <?php echo $field->toHtml() ?>
+                <?php if ($field->getDescription()): ?>
+                    <div class="note"><?php echo $field->getDescription() ?></div>
+                <?php endif ?>
+            </div>
+        </div>
+    <?php endforeach ?>
+    <button type="button" data-bind="click: showFormPopUp" class="action action-show-popup">
+        <span><?php echo __('Add New Address') ?></span>
+    </button>
+    <div id="giftr-new-shipping-address" data-bind="visible: false">
+        <!-- ko template: 'Mirasvit_Giftr/registry/shipping-address/form' --><!-- /ko -->
+    </div>
+</fieldset>

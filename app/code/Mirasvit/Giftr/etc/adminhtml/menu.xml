@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Mirasvit_Giftr::giftr_registry" title="Gift Registry" module="Mirasvit_Giftr" sortOrder="51" action="giftr/registry" resource="Mirasvit_Giftr::giftr_registry" parent="Magento_Customer::customer" />
+    </menu>
+</config>

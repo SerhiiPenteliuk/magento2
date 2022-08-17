@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Html\Section
+ */
+?>
+<div data-bind="scope: 'giftr__form'">
+    <button class="action-add add-co-registrant"
+            onclick="return false;"
+            data-bind="click: toggleCoRegistrant, attr: { title: coRegistrantBtnText }">
+        <span data-bind="text: coRegistrantBtnText"><?php echo __("Add Co-Registrant") ?></span>
+    </button>
+    <fieldset class="fieldset co-registrant-fieldset" data-bind="fadeVisible: coRegistrantExists">
+        <legend class="legend"><span><?php echo $block->getName() ?></span></legend>
+        <?php foreach ($block->getFields() as $field): ?>
+            <div class="field <?php echo $field->getId() ?>">
+                <label for="<?php echo $field->getId() ?>" class="label"><span><?php echo __($field->getTitle()) ?></span></label>
+                <div class="control">
+                    <?php echo $field->toHtml() ?>
+                    <?php if ($field->getDescription()): ?>
+                        <div class="note"><?php echo $field->getDescription() ?></div>
+                    <?php endif ?>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </fieldset>
+</div>

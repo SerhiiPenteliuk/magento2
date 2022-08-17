@@ -460,9 +460,10 @@
         }
     }
 
+    //custom
     .product-social-links {
-        margin: 0 0 0 20%;
-        text-align: center;
+        margin: 0 0 0 16%;
+        .lib-vendor-prefix-display(flex);
 
         .action.tocompare {
             &:extend(.abs-actions-addto all);
@@ -470,8 +471,8 @@
                 @_icon-font-content: @icon-compare-full,
                 @_icon-font-position: before
             );
-            background: #fff none repeat scroll 0 0;
-            border: 1px solid #eee;
+            background: @color-elogic__white none repeat scroll 0 0;
+            border: 1px solid @color-elogic__white-light;
             color: @color-elogic__black;
             display: inline-flex;
             justify-content: center;
@@ -484,9 +485,9 @@
             width: 40px;
 
             &:hover {
-                color: #fff;
-                background: #222;
-                border-color: #222;
+                color: @color-elogic__white;
+                background: @color-header-dark;
+                border-color: @color-header-dark;
             }
 
             span {

@@ -1,0 +1,12 @@
+<!--@subject {{trans "New order for your Gift Registry %registry_name" registry_name=$registryName}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+Dear <b>{{var registrantName}}</b>,<br><br>
+
+{{var bodyHtml | raw}}<br>
+
+<p><strong><a href="{{var resumeUrl}}" style="color:#1E7EC8;">{{trans "View My Gift Registry items"}}</a></strong></p>
+<p>{{trans "Thank you again"}}, <a href="{{store url=""}}">{{var store.getFrontendName()}}</a></p>
+
+{{template config_path="design/email/footer_template"}}

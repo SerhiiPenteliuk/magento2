@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\NewAction
+ */
+?>
+<?php
+$isNewEventsAllowed = $block->isNewEventsAllowed();
+?>
+<div class="fieldset" data-bind="scope: 'giftr__form'">
+    <input type="hidden" name="step" value="<?php echo \Mirasvit\Giftr\Block\Registry\NewAction::STEP_FINISH ?>"/>
+    <div class="field required">
+        <label class="label" for="type_id"><span><?php echo __('Gift Registry Type') ?></span></label>
+        <div class="control">
+            <select data-bind="value: chosenTypeId" class="validate-select" name="type_id" id="type_id">
+                <?php foreach ($block->getTypes($isNewEventsAllowed) as $type): ?>
+                    <option value="<?php echo $type['value']; ?>">
+                        <?php echo $type['label'] ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+    </div>
+    <div class="field event-type required"
+         style="display: none"
+         data-bind="style: { display: chosenTypeId() == '<?php echo \Mirasvit\Giftr\Block\Registry\NewAction::NEW_EVENT_TYPE ?>' ? 'block' : 'none' }">
+        <div class="message info" style="margin-top: 50px;">
+            <p><strong><?php echo __('New registry type will be created, but admin should check and activate it. Meanwhile your registry assigned to this type will be inactive.') ?></strong></p>
+        </div>
+        <label class="label" for="type_name"><span><?php echo __('Event Type Name') ?></span></label>
+        <div class="control">
+            <input type="text" class="input-text" id="type_name" name="type_name" title="Event Type Name" data-validate="{required:true}" />
+        </div>
+    </div>
+</div>
+<div class="actions-toolbar">
+    <div class="primary">
+        <button class="primary action continue" type="submit" title="<?php echo __('Next') ?>">
+            <span><?php echo __('Next') ?></span>
+        </button>
+    </div>
+    <div class="secondary">
+        <a href="<?php echo $block->getUrl('*/*/') ?>" class="action back">
+            <span><small>&laquo;</small> <?php echo __('Back To Registry List') ?></span>
+        </a>
+    </div>
+</div>

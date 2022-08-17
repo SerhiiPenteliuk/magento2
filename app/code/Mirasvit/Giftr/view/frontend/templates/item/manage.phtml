@@ -1,0 +1,53 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Manage
+ */
+?>
+
+<div class="giftr-item-manage-block">
+    <div class="message">
+        <span>
+            <?php echo __(
+                'Reminder: Don\'t forget to share your registry with friends
+                and family via e-mail, facebook or twitter. <a href="%1">Click here to get started</a>.',
+                $block->getUrlToShareSection()
+            ) ?>
+        </span>
+    </div>
+    <br>
+
+    <?php if ($block->getItemCollection()->count()): ?>
+        <div class="actions-toolbar-update">
+            <div class="primary">
+                <button form="giftr-items-form" class="primary action submit" type="submit" title="<?php echo __('Update Items') ?>">
+                    <span><?php echo __('Update Items') ?></span>
+                </button>
+            </div>
+        </div>
+    <?php endif ?>
+
+    <?php if ($block->getItemCollection()->count()): ?>
+        <form data-bind="scope: 'giftr__form'" action="<?php echo $block->getUrl('*/*/massUpdate/') ?>" method="post" id="giftr-items-form">
+            <?php echo $block->getBlockHtmL('formkey') ?>
+            <input type="hidden" name="id" value="<?php echo $block->getRegistry()->getId() ?>"/>
+            <?php echo $block->getChildHtml('giftrItemItems') ?>
+        </form>
+    <?php else: ?>
+        <div class="message info empty">
+            <span>
+                <?php echo __('There are no items here.') ?><br/>
+                <?php echo __('Please, browse catalog and add products to this registry.') ?>
+            </span>
+        </div><br/>
+    <?php endif ?>
+    <div class="actions-toolbar">
+        <div class="secondary">
+            <a href="<?php echo $block->getUrl('*/registry/') ?>" class="action back">
+                <span><small>&laquo;</small> <?php echo __('Back To Registry List') ?></span>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    <?php echo \Zend\Json\Encoder::encode($block->getJsConfiguration()) ?>
+</script>

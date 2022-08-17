@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $this Magento\Framework\View\TemplateEngine\Php
+ * @var $block Magento\Framework\View\Element\Template
+ */
+?>
+<?php
+$registry = $this->helper('Mirasvit\Giftr\Helper\Data')->registry('current_registry');
+$currentPath = '*/'.$block->getRequest()->getControllerName().'/'.$block->getRequest()->getActionName().'/';
+?>
+<div class="giftr-navigation">
+    <ul class="items giftr-links clearfix" aria-labelledby="breadcrumb-label">
+        <?php foreach ($block->getItems() as $path => $label): ?>
+            <?php $options = (substr($path, -5, 4) == 'view')
+                    ? ['uid' => $registry->getUid()]
+                    : ['id' => $registry->getId()]
+            ?>
+            <li class="nav item <?php echo ($currentPath === $path) ? ' current' : '' ?>">
+                <?php echo ($currentPath === $path)
+                        ? '<strong>'
+                        : '<a href="' . $block->getUrl($path, $options) . '"><span>'
+                ?>
+                    <?php echo __($label) ?>
+                <?php echo ($currentPath === $path) ? '</strong>' : '</a></span>' ?>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>
