@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Add
+ */
+?>
+
+<div class="giftr-list" style="display: none"
+     data-bind="scope: 'giftr-addto__form'"
+     data-mage-init='{"dropdownDialog":{
+                "appendTo":".add-to-giftr",
+                "triggerTarget":".togiftr",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "defaultDialogClass":"giftr-dropdown",
+                "show":{
+                    "effect":"fade",
+                    "duration": 200
+                },
+                "hide":{
+                    "effect":"fade",
+                    "duration": 200
+                },
+                "buttons":[]}}'>
+
+    <div class="registry-list" data-bind="visible: hasRegistries">
+        <div class="registries" data-bind="foreach: registries">
+            <label for="registry_>" class="label" data-bind="attr: { for: 'registry_' + value }">
+            <input type="checkbox" id="registry_" name="registries[]" value=""
+                   data-bind="checked: $parent.selected, value: value, attr: { id: 'registry_' + value }" />
+                <span data-bind="text: label"></span>
+            </label>
+        </div>
+        <a id="confirm-add-to-registry" href="#" data-bind="click: addProduct"><?= __('Add') ?></a>
+    </div>
+
+    <div data-bind="visible: isMessageVisible()">
+        <span data-bind="html: getMessage()"></span>
+    </div>
+</div>

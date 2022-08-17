@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\Share
+ */
+?>
+<div class="box-account giftr-registry-share" data-bind="scope: 'giftr_share_form'">
+    <div class="box-content">
+        <div class="b-content-share">
+            <p class="b-link-share">
+                <?php echo __(
+                    'You can share gift registry using: <a href="%1" target="_blank">this link</a>. Just send it to your friends.<br>Your friends can find your gift registry by %2.',
+                    $block->getRegistryAccessUrl(), $block->getFindRegistryBy()
+                ) ?>
+            </p>
+        </div>
+
+        <div class="b-content-share">
+            <?php if ($block->isFacebookEnabled()): ?>
+                <input data-bind="click: win" src="<?php echo $block->getSocialImage('fb.png') ?>" type="image" class="share-icon share-fb"/>
+            <?php endif ?>
+            <?php if ($block->isTwitterEnabled()): ?>
+                <input data-bind="click: win" src="<?php echo $block->getSocialImage('twitter.png') ?>" width="24" type="image" class="share-icon share-twitter"/>
+            <?php endif ?>
+        </div><br>
+        <div class="b-content-share">
+            <div class="b-share-data">
+                <form id="form-validate" action="<?php echo $block->getActionUrl() ?>" method="post" data-mage-init='{"validation":{}}'>
+                <?php echo $block->getBlockHtml('formkey') ?>
+                    <fieldset class="fieldset">
+                        <legend class="legend"><span><?php echo __('Email Gift Registry to your Friends') ?></span></legend>
+                        <div class="field emails required">
+                            <label for="emails" class="label"><span><?php echo __('Enter comma separated list of emails') ?></span></label>
+                            <div class="control">
+                                <textarea class="input-text required-entry validate-emails" name="emails" id="emails" cols="3" rows="2" data-validate="{required:true,'validate-emails':true}" aria-required="true"><?php echo $block->getEnteredData('emails') ?></textarea>
+                            </div>
+                        </div>
+                        <div class="field text">
+                            <label class="label" for="message"><span><?php echo __('Enter message for your friends') ?></span></label>
+                            <div class="control">
+                                <textarea class="input-text validate-no-html-tags" name="message" id="message" cols="3" rows="3"><?php echo $block->getEnteredData('message') ?></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button class="action submit primary" type="submit" title="save">
+                                <span><?php echo __('Send Gift Registry') ?></span>
+                            </button>
+                        </div>
+                        <div class="secondary">
+                            <a href="<?php echo $block->getUrl('*/*/') ?>" class="action back">
+                                <span><small>&laquo;</small> <?php echo __('Back To Registry List') ?></span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    <?php echo \Zend_Json_Encoder::encode($block->getRegistryEventConfiguration()) ?>
+</script>

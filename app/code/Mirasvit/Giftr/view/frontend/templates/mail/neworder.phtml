@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var \Mirasvit\Giftr\Block\Mail\Neworder
+ */
+?>
+<?php
+$orderedItems = $block->getOrderedItems();
+?>
+<p>We are pleased to inform you about the new order from your Gift Registry <b>"<?php echo $block->getRegistry()->getName() ?>"</b>.</p>
+<div style="border:1px solid #E0E0E0; padding:15px; background:#F9F9F9;">
+    <table cellspacing="0" cellpadding="2" border="1" width="650">
+        <thead>
+            <tr>
+                <th><?php echo __('Product Name') ?></th>
+                <th><?php echo __('SKU') ?></th>
+                <th><?php echo __('Ordered QTY') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getItemCollection() as $item): ?>
+                <tr align="center">
+                    <td>
+                        <?php $url = $item->getProductUrl() ?>
+                        <a href="<?php echo $url ?>"><img src="<?php echo $item->getProductImageUrl(); ?>" style="border:1px solid #ccc;float:left" width="80" alt="" /></a>
+                        <p style="margin-left: 100px;text-align: left;"><a href="<?php echo $url ?>"><?php echo $block->getEscapedProductName($item) ?></a></p>
+                    </td>
+                    <td><?php echo $item->getProduct()->getSku() ?></td>
+                    <td><?php echo $orderedItems[$item->getId()] ?></td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</div>

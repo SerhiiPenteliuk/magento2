@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var \Mirasvit\Giftr\Block\Item\Options
+ */
+?>
+
+<?php
+$options = $block->getOptionList();
+?>
+<?php if ($options): ?>
+    <div class="truncated">
+        <div class="truncated_full_value">
+            <div class="item-options">
+                <p><?php echo __('Options Details'); ?></p>
+                <dl>
+                    <?php foreach ($options as $option): ?>
+                        <dt><?php echo $block->escapeHtml($option['label']) ?></dt>
+                        <dd>
+                            <?php if (is_array($option['value'])): ?>
+                                <?php echo nl2br(implode("\n", $option['value'])) ?>
+                            <?php else: ?>
+                                <?php echo $option['value'] ?>
+                            <?php endif; ?>
+                        </dd>
+                    <?php endforeach; ?>
+                </dl>
+            </div>
+        </div>
+<!--        <a href="#" onclick="return false;" class="details">--><?php //echo __('View Details') ?><!--</a>-->
+    </div>
+<?php endif ?>

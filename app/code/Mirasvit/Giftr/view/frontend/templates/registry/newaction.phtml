@@ -1,0 +1,18 @@
+<?php
+/** @var \Mirasvit\Giftr\Block\Registry\NewAction $block */
+?>
+<form class="gift-registry-form" action="<?php echo $block->getActionUrl() ?>" method="post"
+      id="form-validate" enctype="multipart/form-data"data-hasrequired="<?php echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+
+    <?php echo $block->getCurrentContent() ?>
+    <?php echo $block->getBlockHtml('formkey') ?>
+</form>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout(); ?>
+        }
+    }
+</script>

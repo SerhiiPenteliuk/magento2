@@ -1,0 +1,30 @@
+<!--@subject {{trans "Gift Registry item out of stock"}} @-->
+<!--@styles
+body,td { color:#2f2f2f; }
+@-->
+
+{{template config_path="design/email/header_template"}}
+
+<div style="font:13px/1.45em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:13px/1.45em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <tr>
+                        <td valign="top">
+                            <p style="font-size:12px; line-height:16px; margin:0 0 16px 0;">{{trans 'The product you have added to your Gift Registry "%registry_name" is out of stock now.' registry_name=$registry.getName()}}</p>
+                            {{var items | raw}}
+                            <br/>
+                            <p style="text-align:center; font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong><a href="{{var resumeUrl}}" style="color:#1E7EC8;">{{trans "View My Gift Registry items"}}</a></strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><p style="text-align:center; font-size:12px; margin:0;">{{trans "Thank you"}}, <a href="{{store url=""}}">{{var store.getFrontendName() }}</a></p></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{{template config_path="design/email/footer_template"}}

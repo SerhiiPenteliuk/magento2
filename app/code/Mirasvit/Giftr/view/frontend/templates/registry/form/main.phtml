@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\NewAction
+ */
+?>
+<?php foreach ($block->getSections() as $section): ?>
+    <?php echo $section->getBeforeHtml() ?>
+    <?php echo $section->toHtml() ?>
+    <?php echo $section->getAfterHtml() ?>
+<?php endforeach ?>
+<div class="actions-toolbar">
+    <div class="primary">
+        <button class="primary action continue" type="submit" title="<?php echo __('Save') ?>">
+            <span><?php echo __('Save') ?></span>
+        </button>
+    </div>
+    <div class="secondary">
+        <a href="<?php echo $block->getUrl($block->getBackUrl()) ?>" class="action back">
+            <span><small>&laquo;</small> <?php echo __('Back') ?></span>
+        </a>
+    </div>
+</div>

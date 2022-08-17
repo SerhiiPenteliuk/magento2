@@ -1,0 +1,52 @@
+<!--@subject {{trans "Take a look at %customer_name's Gift Registry" customer_name=$customer.getName()}} @-->
+<!--@styles
+body,td { color:#2f2f2f; }
+@-->
+
+{{template config_path="design/email/header_template"}}
+
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+    <table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+        <tr>
+            <td align="center" valign="top">
+                <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <tr>
+                        <td valign="top">
+                            <p style="color: #0e0e0e;font-size: 16px; font-weight: bold;text-align:center;">
+                                {{trans "%registrant_name sent you this" registrant_name=$registry.getRegistrantAndCoName()}}
+                            </p>
+                            <p style="font-size:12px; line-height:16px; border-radius: 3px;padding: 10px; border: 2px solid #ffc435;">{{var message | raw}}</p>
+
+                            <p style="color: #e47911;font-size: 18px;font-weight: bold;text-align: center;">{{trans "Items from Gift Registry"}}</p>
+                            {{var items | raw}}
+
+                            <br/>
+
+                            {{depend addAllLink}}
+                                <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;">
+                                    <strong>
+                                        <a href="{{var addAllLink}}" style="color:#1E7EC8;">{{trans "Add all items to shopping cart"}}</a>
+                                    </strong>
+                                </p>
+                            {{/depend}}
+
+                            <p style="text-align: center">
+                                <strong>
+                                    <a href="{{var registry.getViewUrl() }}" style="color:#1E7EC8;font-size:12px;">{{trans "View all Gift Registry items"}}</a>
+                                </strong>
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;">
+                            <p style="text-align:center; font-size:12px; margin:0;">{{trans "Thank you"}}, <strong>{{var registry.getRegistrantAndCoName() }}</strong></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{{template config_path="design/email/footer_template"}}

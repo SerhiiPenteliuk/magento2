@@ -1,0 +1,44 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Html\Section
+ */
+?>
+<?php if ($block->getRegistry()->getId()): ?>
+    <input type="hidden" name="registry_id" value="<?php echo $block->getRegistry()->getId() ?>"/>
+<?php endif ?>
+
+<fieldset class="fieldset">
+    <legend class="legend"><span><?php echo $block->getName() ?></span></legend>
+
+    <?php if ($block->getType()): ?>
+        <div class="field">
+            <label for="type_id" class="label"><span><?php echo __('Gift Registry Type:') ?></span></label>
+            <span class="giftr-italic label" style="display: inline-block">
+                <b><?php echo __($block->getType()->getName()) ?></b>
+            </span>
+            <input type="hidden" name="type_id" value="<?php echo $block->getType()->getId() ?>"/>
+        </div>
+    <?php endif ?>
+
+    <div class="field">
+        <?php if ($block->getRegistry()->getUid()): ?>
+            <label for="registry_uid" class="label"><span><?php echo __('Gift Registry ID:') ?></span></label>
+            <span class="giftr-italic label" style="display: inline-block">
+                <b><?php echo $block->getRegistry()->getUid() ?></b>
+            </span>
+            <input type="hidden" name="uid" value="<?php echo $block->getRegistry()->getUid() ?>"/>
+        <?php endif ?>
+    </div>
+
+    <?php foreach ($block->getFields() as $field): ?>
+        <div class="field <?php echo $field->getId() . ' ' . (($field->isRequired()) ? 'required' : '') ?>">
+            <label for="<?php echo $field->getId() ?>" class="label"><span><?php echo __($field->getTitle()) ?></span></label>
+            <div class="control">
+                <?php echo $field->toHtml() ?>
+                <?php if ($field->getDescription()): ?>
+                    <div class="note"><?php echo $field->getDescription() ?></div>
+                <?php endif ?>
+            </div>
+        </div>
+    <?php endforeach ?>
+</fieldset>

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <update handle="giftr_navigation"/>
+    <update handle="giftr_container"/>
+    <head>
+        <title>Edit Gift Registry</title>
+    </head>
+    <body>
+        <referenceContainer name="giftr.container">
+            <!-- include to translate calendar -->
+            <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar" template="Magento_Theme::js/calendar.phtml" before="-"/>
+
+            <block class="Mirasvit\Giftr\Block\Registry\Form" name="giftr.registry.form" template="Mirasvit_Giftr::registry/edit.phtml" cacheable="false">
+                <block class="Mirasvit\Giftr\Block\Registry\Form" name="registry.edit" template="Mirasvit_Giftr::registry/form/main.phtml">
+                    <action method="setBackUrl">
+                        <argument name="backUrl" xsi:type="string">*/*/</argument>
+                    </action>
+                </block>
+                <action method="setActionUrl">
+                    <argument name="actionUrl" xsi:type="string">*/*/save</argument>
+                </action>
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="giftr__form" xsi:type="array">
+                                <item name="component" xsi:type="string">Mirasvit_Giftr/js/giftr</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="chosenTypeId" xsi:type="boolean">0</item>
+                                    <item name="coRegistrantExists" xsi:type="boolean">0</item>
+                                    <item name="coRegistrantBtnText" xsi:type="string" translate="true">Add Co-Registrant</item>
+                                    <item name="popUpForm" xsi:type="array">
+                                        <item name="element" xsi:type="string">#giftr-new-shipping-address</item>
+                                        <item name="options" xsi:type="array">
+                                            <item name="type" xsi:type="string">popup</item>
+                                            <item name="responsive" xsi:type="boolean">true</item>
+                                            <item name="innerScroll" xsi:type="boolean">true</item>
+                                            <item name="title" xsi:type="string" translate="true">Gift Registry Shipping Address</item>
+                                            <item name="trigger" xsi:type="string">giftr-new-shipping-address</item>
+                                            <item name="saveAddressUrl" xsi:type="url" path="*/*/saveShipping" />
+                                            <item name="shippingSelectId" xsi:type="string">#shipping_address_id</item>
+                                            <item name="buttons" xsi:type="array">
+                                                <item name="save" xsi:type="array">
+                                                    <item name="text" xsi:type="string" translate="true">Save Address</item>
+                                                    <item name="class" xsi:type="string">action primary action-save-address</item>
+                                                </item>
+                                                <item name="cancel" xsi:type="array">
+                                                    <item name="text" xsi:type="string" translate="true">Cancel</item>
+                                                    <item name="class" xsi:type="string">action secondary action-hide-popup</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="provider" xsi:type="string">addressProvider</item>
+                                <item name="children" xsi:type="array">
+                                    <item name="shipping-address-fieldset" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">addressProvider</item>
+                                            </item>
+                                        </item>
+                                        <item name="displayArea" xsi:type="string">additional-fieldsets</item>
+                                        <item name="children" xsi:type="array">
+                                            <!-- The following items override configuration of corresponding address attributes -->
+                                            <item name="region" xsi:type="array">
+                                                <!-- Make region attribute invisible on frontend. Corresponding input element is created by region_id field -->
+                                                <item name="visible" xsi:type="boolean">false</item>
+                                            </item>
+                                            <item name="region_id" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/region</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">ui/form/field</item>
+                                                    <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                    <item name="customEntry" xsi:type="string">shippingAddress.region</item>
+                                                </item>
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="required-entry" xsi:type="boolean">true</item>
+                                                </item>
+                                                <!-- Value of region_id field is filtered by the value of county_id attribute -->
+                                                <item name="filterBy" xsi:type="array">
+                                                    <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>
+                                                    <item name="field" xsi:type="string">country_id</item>
+                                                </item>
+                                            </item>
+                                            <item name="postcode" xsi:type="array">
+                                                <!-- post-code field has custom UI component -->
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/post-code</item>
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="required-entry" xsi:type="string">true</item>
+                                                </item>
+                                            </item>
+                                            <item name="company" xsi:type="array">
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="min_text_length" xsi:type="number">0</item>
+                                                </item>
+                                            </item>
+                                            <item name="fax" xsi:type="array">
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="min_text_length" xsi:type="number">0</item>
+                                                </item>
+                                            </item>
+                                            <item name="country_id" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">115</item>
+                                            </item>
+                                            <item name="telephone" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="tooltip" xsi:type="array">
+                                                        <item name="description" xsi:type="string" translate="true">For delivery questions.</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="addressProvider" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

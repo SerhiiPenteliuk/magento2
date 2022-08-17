@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <update handle="giftr_navigation"/>
+    <update handle="giftr_container"/>
+    <head>
+        <title>Share Giftr Registry with Friends</title>
+    </head>
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Mirasvit\Giftr\Block\Registry\View" name="giftr.registry.meta" as="giftrMeta" template="Mirasvit_Giftr::registry/view/meta.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="giftr.container">
+            <block class="Mirasvit\Giftr\Block\Registry\Share" name="giftr.registry.share" as="giftrShare" template="Mirasvit_Giftr::registry/share.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Html\Section
+ */
+?>
+<fieldset class="fieldset">
+    <legend class="legend"><span><?php echo $block->getName() ?></span></legend>
+    <?php foreach ($block->getFields() as $field): ?>
+        <div class="field <?php echo $field->getId() . ' ' . (($field->isRequired()) ? 'required' : '') ?>">
+            <label for="<?php echo $field->getId() ?>" class="label"><span><?php echo __($field->getTitle()) ?></span></label>
+            <div class="control">
+                <?php echo $field->toHtml() ?>
+                <?php if ($field->getDescription()): ?>
+                    <div class="note"><?php echo $field->getDescription() ?></div>
+                <?php endif ?>
+            </div>
+        </div>
+    <?php endforeach ?>
+</fieldset>

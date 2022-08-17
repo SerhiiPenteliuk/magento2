@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      layout="admin-2columns-left">
+    <body>
+        <referenceBlock name="breadcrumbs">
+            <action method="addLink">
+                <argument name="label" xsi:type="string" translate="true">Gift Registries</argument>
+                <argument name="title" xsi:type="string" translate="true">Gift Registries</argument>
+                <argument name="url" xsi:type="url" path="*/*/"/>
+            </action>
+            <action method="addLink">
+                <argument name="label" xsi:type="string" translate="true">Edit Registry</argument>
+                <argument name="title" xsi:type="string" translate="true">Edit Registry</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Mirasvit\Giftr\Block\Adminhtml\Registry\Edit"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Mirasvit\Giftr\Block\Adminhtml\Registry\Edit\Tabs">
+                <!--<action method="setMode">
+                    <argument name="mode" xsi:type="string">edit</argument>
+                </action>-->
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">edit_tab_general</argument>
+                    <argument name="block" xsi:type="string">Mirasvit\Giftr\Block\Adminhtml\Registry\Edit\Tab\General</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">edit_tab_products</argument>
+                    <argument name="block" xsi:type="string">Mirasvit\Giftr\Block\Adminhtml\Registry\Edit\Tab\Products</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">edit_tab_orders</argument>
+                    <argument name="block" xsi:type="string">\Mirasvit\Giftr\Block\Adminhtml\Registry\Edit\Tab\Orders</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

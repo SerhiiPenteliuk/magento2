@@ -1,0 +1,166 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Manage
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ */
+?>
+<?php
+/* @var $output Magento\Catalog\Helper\Output */
+$output = $this->helper('Magento\Catalog\Helper\Output');
+?>
+
+<?php
+if ($block->getMode() == 'grid') {
+    $viewMode = 'grid';
+    $image = 'category_page_grid';
+    $showDescription = false;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+} else {
+    $viewMode = 'list';
+    $image = 'category_page_list';
+    $showDescription = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIEW;
+}
+?>
+
+<?php //$toolbar = $block->getChildBlock('product_list_toolbar')->setCollection($this->getItemCollection()); ?>
+<?php //echo $toolbar->toHtml() ?>
+<div
+    class="giftr products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>"
+    xmlns="http://www.w3.org/1999/html">
+    <ol class="giftr-items products list items product-items">
+        <?php foreach ($block->getItemCollection() as $item): ?>
+            <?php
+            /** @var \Mirasvit\Giftr\Model\Item $item * */
+            $item = $block->getItemById($item->getId());
+            $product = $item->getProduct();
+            $productName = $block->stripTags($product->getName(), null, true);
+            $options = $block->getChildBlock('giftr.item.options')
+                ->setItem($item)
+                ->getConfiguredOptions();
+            ?>
+            <li class="item product product-item" id="item_<?php echo $item->getId() ?>">
+                <div class="product-item-info" data-container="product-grid">
+                    <input type="hidden" name="items[<?php echo $item->getId() ?>][product_id]"
+                           value="<?php echo $product->getId() ?>"/>
+
+                    <?php // Product Image ?>
+                    <a href="<?php /* @escapeNotVerified */ echo $product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                        <?php echo $block->getProductImage($item, $image, $options)->toHtml(); ?>
+                    </a>
+
+                    <div class="product-item-details product details">
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link"
+                               href="<?php /* @escapeNotVerified */ echo $product->getProductUrl() ?>">
+                                <?php /* @escapeNotVerified */ echo $output->productAttribute($product, $product->getName(), 'name'); ?>
+                            </a>
+                        </strong>
+
+<!--                        --><?php //echo $block->getReviewsSummaryHtml($product, $templateType); ?>
+                        <?php /* @escapeNotVerified */ echo $block->getProductPrice($product) ?>
+<!--                        --><?php //echo $block->getProductDetailsHtml($product); ?>
+
+                        <div class="product-item-inner">
+
+                            <fieldset class="fieldset">
+                            <div class="field comment-box">
+                                <label for="product-item-comment-<?php echo $item->getId() ?>" class="label"><span><?php echo __('Comment') ?></span></label>
+                                <div class="control">
+                                    <textarea name="items[<?php echo $item->getId() ?>][note]" id="product-item-comment-<?php echo $item->getId() ?>"
+                                              placeholder="<?php echo __('Add your notes here...') ?>"
+                                              class="product-item-comment"><?php echo $item->getNote() ?></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field priority">
+                                <label style="display:none" for="priority" class="label"><span><?php echo __('Priority:') ?></span></label>
+                                <div class="control">
+                                    <?php echo $this->helper('Mirasvit\Giftr\Helper\Block')->getPriorityHtmlSelect($item->getPriorityId(), $item->getId(),
+                                        'items['.$item->getId().'][priority_id]')->toHtml() ?>
+                                </div>
+                            </div>
+
+                            <div class="field box-tocart">
+                                <fieldset class="fieldset">
+                                    <div class="field qty">
+                                        <label for="item_qty_<?php echo $item->getId() ?>" class="label"><span><?php echo __('Desired Qty:') ?></span></label>
+                                        <div class="control">
+                                            <input type="text" name="items[<?php echo $item->getId() ?>][qty]"
+                                                   id="item_qty_<?php echo $item->getId() ?>" maxlength="12"
+                                                   value="<?php echo $item->getQty() ?>" title="<?php echo __('Qty') ?>"
+                                                   class="input-text qty validate-greater-than-zero" />
+                                        </div>
+
+                                        <div class="product actions product-item-actions">
+                                            <div class="actions-primary">
+                                                <?php if (!$item->isSalable()): ?>
+                                                    <div class="stock unavailable">
+                                                        <span><?php echo __('Out Of Stock') ?></span>
+                                                    </div>
+                                                <?php elseif (!$product->isVisibleInCatalog() || !$product->isVisibleInSiteVisibility()): ?>
+                                                    <div class="stock unavailable">
+                                                        <span><?php echo __('Not Available Currently') ?></span>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <button type="button" title="<?php echo __('Add to Cart') ?>"
+                                                            class="action tocart primary"
+                                                            data-bind="click: addToCart.bind($data, '<?php echo $item->getId() ?>');">
+                                                        <span><?php echo __('Add to Cart') ?></span>
+                                                    </button>
+                                                <?php endif ?>
+                                            </div>
+                                            <div data-role="add-to-links" class="actions-secondary">
+                                                <?php
+                                                $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                                ?>
+                                                <a href="#"
+                                                   class="action tocompare"
+                                                   title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                                   aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                                   data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($product); ?>'
+                                                   role="button">
+                                                    <span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                            </div>
+
+
+
+                            <div class="field qty qty-received">
+                                <label class="label" for="qty_received_<?php echo $item->getId() ?>"><span><?php echo __('Invoiced/Received Qty:') ?></span></label>
+                                <div class="control">
+                                    <?php echo $item->getQtyOrdered().'/' ?>
+                                    <input type="text" id="qty_received_<?php echo $item->getId() ?>" name="items[<?php echo $item->getId() ?>][qty_received]"
+                                           value="<?php echo $item->getQtyReceived() ?>"
+                                           class="input-text validate-zero-or-greater"/>
+                                </div>
+                            </div>
+                            </fieldset>
+
+                            <div class="product-item-actions">
+                                <?php echo $block->getChildHtml('giftr.item.options', false) ?>
+
+                                <!--<a class="action edit" href="<?php /*echo $block->getUpdateUrl($item->getId()) */?>">
+                                <span><?php /*echo __('Edit') */?></span>
+                            </a>-->
+
+                                <a href="#" class="btn-remove action delete"
+                                   data-bind="click: removeItem.bind($data, <?php echo $item->getId() ?>)">
+                                    <span><?php echo __('Remove') ?></span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ol>
+</div>
+<?php //echo $toolbar->toHtml() ?>

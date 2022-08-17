@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.social">
+            <block class="Mirasvit\Giftr\Block\Item\Add" name="giftr.item.add-to-link" template="Mirasvit_Giftr::item/add_to/product.phtml" before="product.info.mailto">
+                <block class="Mirasvit\Giftr\Block\Item\Add" name="giftr.list" as="giftrDropdown" template="Mirasvit_Giftr::item/add_to/list.phtml"/>
+                <arguments>
+                    <argument name="mode" xsi:type="string">add</argument>
+                    <argument name="label" xsi:type="string" translate="true">Gift Registry</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

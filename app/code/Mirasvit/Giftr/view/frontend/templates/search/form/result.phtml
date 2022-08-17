@@ -1,0 +1,73 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Search\Result
+ */
+?>
+
+<?php if (!$block->getRegistryType()): ?>
+<?php echo $this->getChildHtml('giftrSearchRegistryType') ?>
+<?php else: ?>
+    <?php echo $this->getChildHtml('gitrSearchForm') ?>
+    <?php if (count($block->getCollection()) == 0): ?>
+        <p class="note-msg"><?php echo __('Your search returns no results.') ?></p>
+    <?php endif ?>
+
+    <div class="giftr-result event-grid">
+        <div class="toolbar">
+            <?php echo $block->getChildHtml('pager') ?>
+        </div>
+        <ol id="registry-list" class="registry-list event-items">
+            <?php /* @var $registry \Mirasvit\Giftr\Model\Registry */ ?>
+            <?php foreach ($block->getCollection() as $registry):
+                $block->setRegistry($registry);
+                $registrants = [];
+                $registrants[] = $block->getRegistrantName();
+                if ($block->getRegistry()->getCoFirstname()) {
+                    $registrants[] = $block->getCoRegistrantName();
+                }
+
+                $details = [];
+                if ($block->getRegistry()->getEventAt()) {
+                    $details[] = $block->getEventDate();
+                }
+
+                if ($block->getRegistry()->getLocation()) {
+                    $details[] = $block->getRegistry()->getLocation();
+                }
+
+                $description = '';
+                if ($block->getRegistry()->hasDescription()){
+                    $description .= $block->escapeHtml($block->getRegistry()->getDescription());
+                }
+
+                ?>
+                <li class="item event-item" onclick="location.href = '<?php echo $block->getRegistryUrl() ?>'">
+                    <div class="event-item-bgimage">
+
+                    <?php if(!empty($registry->getImage())) :?>
+                        <img height="50px" src="<?php echo $registry->getImageUrl(400,0) ?>"
+                            alt="<?php echo $block->getRegistry()->getName() ?>"/>
+                    <?php else :?>
+                        <img height="50px" src="<?php echo $block->getRegistryType()->getImageUrl('event_image',400,0)?>"
+                            alt="<?php echo $block->getRegistry()->getName() ?>"/>
+                    <?php endif?>
+
+                    </div>
+                    <div class="event-item-title">
+                        <div class="item-title event-name"> <?php echo $block->getRegistry()->getName() ?> </div>
+                        <div class="item-title registrant"> <?php echo implode(' & ', $registrants) ?> </div>
+                        <div class="item-title details"><?php echo implode (' | ' ,$details) ?></div>
+                    </div>
+                    <div class="event-item-inner">
+                        <?php if ($registry->hasDescription()): ?>
+                            <div class="description"><?php echo $registry->getDescription() ?></div>
+                        <?php endif ?>
+                    </div>
+                </li>
+            <?php endforeach ?>
+        </ol>
+        <div class="toolbar">
+            <?php echo $block->getChildHtml('pager') ?>
+        </div>
+    </div>
+<?php endif?>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Email/etc/email_templates.xsd">
+    <template id="giftr_notification_owner_email_template" label="Gift Registry - Owner Notification Template" file="notification_owner_email_template.html" type="html" module="Mirasvit_Giftr" area="frontend"/>
+    <template id="giftr_notification_sharing_email_template" label="Gift Registry - Gift Registry Sharing Notification Template" file="notification_sharing_email_template.html" type="html" module="Mirasvit_Giftr" area="frontend"/>
+    <template id="giftr_notification_outofstock_item_email_template" label="Gift Registry - Out Of Stock Item Notification Template" file="notification_outofstock_item_email_template.html" type="html" module="Mirasvit_Giftr" area="frontend"/>
+    <!--<template id="comment" label="" file="" type="" module="Mirasvit_Giftr" area="frontend"/>-->
+</config>

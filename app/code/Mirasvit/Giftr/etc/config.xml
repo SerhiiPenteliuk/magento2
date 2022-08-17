@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Store/etc/config.xsd">
+    <default>
+        <mirasvit>
+            <giftr>
+                <enabled>1</enabled>
+            </giftr>
+        </mirasvit>
+        <giftr>
+            <general>
+                <is_show_middlename>1</is_show_middlename>
+                <order_invoiced_status>processing</order_invoiced_status>
+                <order_received_status>complete</order_received_status>
+                <is_product_validation_not_required>1</is_product_validation_not_required>
+                <force_shipping>0</force_shipping>
+                <is_addto_category>0</is_addto_category>
+                <visibility>1</visibility>
+            </general>
+            <notification>
+                <sender_email>general</sender_email>
+                <owner_email_template>giftr_notification_owner_email_template</owner_email_template>
+                <sharing_email_template>giftr_notification_sharing_email_template</sharing_email_template>
+                <outofstock_item_email_template>giftr_notification_outofstock_item_email_template</outofstock_item_email_template>
+                <update_email_template>giftr_notification_update_email_template</update_email_template>
+            </notification>
+        </giftr>
+    </default>
+</config>

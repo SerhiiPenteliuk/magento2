@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <section id="giftr" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label" sortOrder="100">
+            <label>Gift Registry</label>
+            <tab>mirasvit</tab>
+            <resource>Mirasvit_Giftr::config_giftr</resource>
+            <group id="general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                <label>General Settings</label>
+                <field id="placeholder" translate="label" type="image" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Gift Registry Image Placeholder</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">giftr</upload_dir>
+                    <base_url type="media" scope_info="1">giftr</base_url>
+                </field>
+                <field id="is_show_middlename" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Middle Name</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_invoiced_status" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set gift registry item status to 'Invoiced' when order receives status</label>
+                    <source_model>\Mirasvit\Giftr\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="order_received_status" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set gift registry item status to 'Received' when order receives status</label>
+                    <source_model>\Mirasvit\Giftr\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="visibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Display public gift registries in the search result by default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="gift_message" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show Gift Messages on the Gift Registry Guest page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="hide_expired" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Hide Expired Events</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allow_new_events" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allow customers create new events</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--<field id="is_product_validation_not_required" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allow customers to add not configured products to Gift Registry</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="force_shipping" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Display only a Gift Owner's address as the shipping address at checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="is_addto_category" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Display 'Add to Gift Registry' at category page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>-->
+            </group>
+            <group id="notification" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                <label>Notifications</label>
+                <field id="sender_email" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="owner_email_template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Owner Notification Template</label>
+                    <source_model>\Mirasvit\Giftr\Model\System\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="sharing_email_template" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Gift Registry Sharing Notification Template</label>
+                    <source_model>\Mirasvit\Giftr\Model\System\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="outofstock_item_email_template" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Out Of Stock Item Notification Template</label>
+                    <source_model>\Mirasvit\Giftr\Model\System\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="comment" translate="label" sortOrder="200" showInDefault="0" showInWebsite="0" showInStore="0"/>
+            </group>
+        </section>
+    </system>
+</config>

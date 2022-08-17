@@ -1,0 +1,41 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Add
+ */
+?>
+
+<?php
+if ($block->getProduct()->getUseInGiftr()):
+    $giftrUrl = $block->getRegistryUrl($block->getRequest()->getServerValue('HTTP_REFERER'), $block->getRequest()->getParam('giftr'));
+    if ($giftrUrl) {
+        $notice = __('If you want to buy this product as a gift please go to') .' <a href="'. $giftrUrl .'">'. __('Gift Registry Page') .'</a>';
+        $block->setMessage($notice);
+    }
+
+    $isValidationNotRequired = $block->isValidationNotRequired();
+    $isShowRegistryList = $block->isShowRegistryList();
+?>
+
+    <div class="add-to-giftr" data-block="addtogiftr" data-role="add-to-links">
+        <?php if ($block->getMode() === Mirasvit\Giftr\Block\Item\Add::MODE_CONFIGURE): ?>
+            <a href="<?= $block->getUpdateUrl() ?>" id="addto-giftr" class="link-giftr"
+               data-bind="scope: 'giftr-addto__form'"
+               onclick="productAddToCartForm.submitLight(this, this.href); return false;">
+                <?= $block->getLabel() ?>
+            </a>
+        <?php else: ?>
+            <div class="giftr-link togiftr" data-bind="scope: 'giftr-addto__form'">
+                <a href="#" id="addto-giftr" class="action togiftr link-giftr" data-bind="click: defineBehaviour"><span><?= $block->getLabel() ?></span>
+                </a>
+            </div>
+
+            <?= $block->getChildHtml('giftrDropdown') ?>
+        <?php endif ?>
+        <input type="hidden" name="product_id" id="product_id" value="<?= $block->getProduct()->getId() ?>" />
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "*": <?= \Zend\Json\Encoder::encode($block->getJsConfiguration()) ?>
+        }
+    </script>
+<?php endif?>

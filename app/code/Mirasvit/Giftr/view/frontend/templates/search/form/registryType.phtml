@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Search\RegistryType
+ */
+$registryTypeCollection = $block->getRegistryTypeCollection();
+
+
+?>
+
+<?php if (count($registryTypeCollection) == 0): ?>
+    <p class="note-msg"><?php echo __('No registries found. Please try later.') ?></p>
+<?php endif ?>
+
+<div class="giftr-result products-grid">
+    <div class="toolbar">
+        <?php // echo $block->getChildHtml('pager') ?>
+    </div>
+    <ol id="registry-list" class="registry-list event-items">
+            <?php /* @var $registry \Mirasvit\Giftr\Model\Registry */ ?>
+            <?php foreach ($registryTypeCollection as $registryType): ?>
+                <li class="item event-item" onclick="location.href = '<?php echo $this->getUrl('*/*/*', ['registry_type' => $registryType->getCode()]) ?>'" >
+                    <div class="event-item-bgimage">
+                        <img src="<?php echo $registryType->getImageUrl('event_image') ?>"
+                            alt="<?php  echo $registryType->getName() ?>"/>
+                    </div>
+                    <div class="event-icon">
+                        <?php if ($registryType->hasEventIcon()): ?>
+                            <img class="giftr-event-icon" src="<?php echo $registryType->getImageUrl('event_icon',50,50) ?>"
+                                alt="<?php  echo $registryType->getName() ?>"/>
+                        <?php endif ?>
+                    </div>
+                    <div class="event-type-item-title">
+                        <div class="item-title event-name"> <?php echo $registryType->getName() ?> </div>
+                    </div>
+                    <?php if ($registryType->hasDescription() && !empty($registryType->getDescription())): ?>
+                        <div class="event-item-inner">
+                                <div class="description"><?php echo $registryType->getDescription() ?></div>
+                        </div>
+                    <?php endif ?>
+                </li>
+            <?php endforeach ?>
+        </ol>
+    <div class="toolbar">
+        <?php echo $block->getChildHtml('pager') ?>
+    </div>
+</div>

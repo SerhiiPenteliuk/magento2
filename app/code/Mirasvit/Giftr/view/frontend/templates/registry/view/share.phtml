@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\Item\Share
+ */
+?>
+<?php echo $block->getChildHtml('giftrMeta') ?>
+<div class="share-block" data-bind="scope: 'giftr_share_form'">
+    <input data-bind="click: win" src="<?php echo $block->getSocialImage('fb.png') ?>" type="image" class="share-icon share-fb"/>
+    <input data-bind="click: win" src="<?php echo $block->getSocialImage('twitter.png') ?>" width="24" type="image" class="share-icon share-twitter"/>
+</div>
+<script type="text/x-magento-init">
+    <?php echo \Zend_Json_Encoder::encode($block->getRegistryEventConfiguration()) ?>
+</script>

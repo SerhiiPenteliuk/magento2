@@ -1,0 +1,47 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Mail\Items
+ * @var $item \Mirasvit\Giftr\Model\Item
+ */
+?>
+<?php
+$l = $block->getItemCollection()->count();
+?>
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <tr>
+        <?php $i = 0;
+        foreach ($block->getItemCollection() as $item): $i++ ?>
+        <?php $product = $item->getProduct(); ?>
+        <td width="48%" valign="top">
+            <p align="center" style="font-size:12px;">
+                <a href="<?php echo $product->getUrlModel()->getUrl($product, array('_query' => array('giftr' => $item->getRegistry()->getUid())));?>">
+                    <img src="<?php echo $block->getImage($product, 'shared_wishlist_email')->getImageUrl() ?>" alt=""/>
+                </a>
+            </p>
+
+            <p align="center" style="font-size:12px;">
+                <a href="<?php echo $product->getUrlModel()->getUrl($product, array('_query' => array('giftr' => $item->getRegistry()->getUid())));?>" style="color:#336699;font-size: 14px;">
+                    <strong><?php echo $block->escapeHtml($product->getName()) ?></strong>
+                </a>
+            </p>
+
+            <p align="center" style="font-size:12px;background: #ffc435; border-radius: 3px; text-align: center;font-size:13px;">
+                <a href="<?php echo $product->getUrlModel()->getUrl($product, array('_query' => array('giftr' => $item->getRegistry()->getUid())));?>" style="display: block;font-weight: bold;text-decoration: none;color: #303942;white-space: nowrap;padding: 14px;">
+                    <?php echo __('View Product') ?>
+                </a>
+            </p>
+        </td>
+        <?php if ($i % 2 != 0): ?>
+            <td width="2%"></td>
+        <?php else: ?>
+    </tr>
+    <tr>
+        <td colspan="5">&nbsp;</td>
+    </tr>
+    <?php if ($i < $l): ?>
+    <tr>
+        <?php endif ?>
+        <?php endif ?>
+        <?php endforeach ?>
+</table>
+

@@ -1,0 +1,38 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Service-->
+    <preference for="Mirasvit\Giftr\Api\Service\RegistryProviderInterface" type="Mirasvit\Giftr\Service\RegistryProvider"/>
+    <preference for="Mirasvit\Giftr\Api\Service\Registry\OrderProviderInterface" type="Mirasvit\Giftr\Service\Registry\OrderProvider"/>
+
+    <!--Repository-->
+    <preference for="Mirasvit\Giftr\Api\Repository\PurchaseRepositoryInterface" type="Mirasvit\Giftr\Repository\PurchaseRepository"/>
+    <preference for="Mirasvit\Giftr\Api\Repository\RegistryRepositoryInterface" type="Mirasvit\Giftr\Repository\RegistryRepository"/>
+
+    <type name="\Magento\Quote\Model\QuoteAddressValidator">
+        <plugin name="ValidateGiftrQuoteAddress" type="\Mirasvit\Giftr\Model\Plugin\Checkout\QuoteAddressValidatorPlugin" sortOrder="1"/>
+    </type>
+
+    <type name="\Magento\Quote\Model\Webapi\ParamOverriderCartId">
+        <plugin name="CartIdForRegistrantCustomer" type="\Mirasvit\Giftr\Model\Plugin\Checkout\Webapi\ParamOverriderCartId" sortOrder="1"/>
+    </type>
+
+    <!-- Configure Gift Registry Value Option Provider for Customer Segment ProductList Condition  -->
+    <virtualType name="Mirasvit\CustomerSegment\Service\Segment\Condition\Product\List\GiftRegistryValueProvider" type="Mirasvit\CustomerSegment\Service\Segment\Condition\ValueProvider">
+        <arguments>
+            <argument name="code" xsi:type="string">giftr</argument>
+            <argument name="label" xsi:type="string">Mirasvit Gift Registry*</argument>
+            <argument name="collectionProvider" xsi:type="object">Mirasvit\CustomerSegment\Service\Segment\Condition\ProductCollectionProvider\GiftRegistryProvider</argument>
+        </arguments>
+    </virtualType>
+    <type name="Mirasvit\CustomerSegment\Model\Segment\Condition\Product\Productlist">
+        <arguments>
+            <argument name="valueProviders" xsi:type="array">
+                <item name="giftRegistryValueProvider" xsi:type="object">Mirasvit\CustomerSegment\Service\Segment\Condition\Product\List\GiftRegistryValueProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <plugin name="sales_order_additional_columns" type="Mirasvit\Giftr\Plugin\SalesOrderGiftrColumn" sortOrder="10" disabled="false" />
+    </type>
+</config>

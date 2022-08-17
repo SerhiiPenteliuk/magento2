@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Mirasvit\Giftr\Block\Registry\Wish $block
+ */
+?>
+<ul class="gift-wishes">
+    <?php foreach ($block->getWishes() as $wish): ?>
+        <li>
+            <blockquote class="gift-quote">
+                <p class="gift-message"><?= $wish->getMessage() ?></p><br><br>
+                <p class="gift-sender"><?= $wish->getSender() ?></p>
+            </blockquote>
+        </li>
+    <?php endforeach ?>
+</ul>

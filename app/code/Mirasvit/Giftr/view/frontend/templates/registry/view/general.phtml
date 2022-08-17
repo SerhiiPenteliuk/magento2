@@ -1,0 +1,78 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\View
+ */
+?>
+
+<?php
+    $registrants = [];
+    $registrants[] = $block->getRegistrantName();
+    if ($block->getRegistry()->getCoFirstname()) {
+        $registrants[] = $block->getCoRegistrantName();
+    }
+
+    $details = [];
+    if ($block->getRegistry()->getEventAt()) {
+        $details[] = $block->getEventDate();
+    }
+    if ($block->getRegistry()->getLocation()) {
+        $details[] = $block->getRegistry()->getSafe('location');
+    }
+
+    $description = '';
+    if ($block->getRegistry()->hasDescription()){
+        $description .= $block->escapeHtml($block->getRegistry()->getSafe('description'));
+    }
+?>
+
+<div class="giftr-registry-view-general">
+
+    <div class="heading">
+        <div class="heading-bg">
+        <?php if ($block->getRegistry()->getType()->hasEventImage()): ?>
+            <img src="<?php echo $block->getRegistry()->getType()->getImageUrl('event_image',0,0) ?>" width="100%" 
+                alt="<?php echo $block->getRegistrantName() ?>"/>
+        <?php else :?>
+            <img src="<?php echo $block->getRegistry()->getBGImageUrl(0, 0) ?>" width="100%" 
+                alt="<?php echo $block->getRegistrantName() ?>"/>
+        <?php endif ?>
+        </div>
+        <?php if ($block->getRegistry()->getType()->hasEventIcon()): ?>
+            <div class="event-icon">
+                    <img class="giftr-event-icon" src="<?php echo $block->getRegistry()->getType()->getImageUrl('event_icon',50,50) ?>"
+                        alt="<?php echo $block->getRegistrantName() ?>"/>
+            </div>
+        <?php endif ?>
+
+        <div class="title">
+            <div class="registrant">
+               <?php if ($block->getRegistry()->getType()->hasEventIcon()): ?>
+                    <div class="inline-img">
+                        <img class="giftr-event-icon" src="<?php echo $block->getRegistry()->getType()->getImageUrl('event_icon',50,50) ?>"
+                            alt="<?php echo $block->getRegistrantName() ?>"/>
+                    </div>
+                <?php endif ?>
+                <?php ?>
+                <?php foreach ($registrants as $registrant) :?>
+                    <div class="registrant-content"><?php echo $registrant ?></div>
+                <?php endforeach; ?>
+                <div class="registrant-content-common"><?php echo implode(' & ', $registrants) ?></div>
+            </div>
+            <div class="details">
+                <div class="details-content">
+                    <?php echo implode (' | ' ,$details) ?>
+                </div>
+            </div>
+        </div>
+        <div class="image">
+            <img height="200px" src="<?php echo $block->getRegistry()->getImageUrl(400, 0) ?>"
+                alt="<?php echo $block->getRegistrantName() ?>"/>
+        </div>
+        <div class="description">
+            <div class="description-content">
+                <?php echo $description ?>
+            </div>
+        </div>
+    <?php echo $block->getChildHtml('giftrItemShare') ?>
+    </div>
+</div>

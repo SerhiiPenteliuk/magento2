@@ -1,0 +1,10 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Registry\View
+ */
+?>
+<meta property="og:title" content="<?php echo $block->escapeHtml($block->getRegistry()->getName()) ?>"/>
+<meta property="og:url" content="<?php echo $block->getRegistry()->getViewUrl(); ?>"/>
+<meta property="og:image" content="<?php echo $block->getRegistry()->getImageUrl(); ?>"/>
+<meta property="og:description"
+      content="<?php echo substr($block->escapeHtml($block->getRegistry()->getDescription()), 0, 120); ?>"/>

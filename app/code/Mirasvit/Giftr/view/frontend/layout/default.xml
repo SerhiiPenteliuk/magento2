@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="giftr-top-link" after="my-account-link">
+                <arguments>
+                    <argument name="path" xsi:type="string">giftr/registry</argument>
+                    <argument name="label" xsi:type="string" translate="true">My Gift Registry</argument>
+                    <argument name="title" xsi:type="string" translate="true">My Gift Registry</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="giftr-footer-link">
+                <arguments>
+                    <argument name="path" xsi:type="string">giftr/search/result</argument>
+                    <argument name="label" xsi:type="string" translate="true">Gift Registry Search</argument>
+                    <argument name="title" xsi:type="string" translate="true">Gift Registry Search</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

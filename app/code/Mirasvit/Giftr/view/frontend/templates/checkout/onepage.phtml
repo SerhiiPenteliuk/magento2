@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Onepage
+ */
+?>
+<?php if ($block->isVisible()): ?>
+    <script type="text/x-magento-init">
+            <?php echo \Zend_Json::encode($block->getJsConfiguration()); ?>
+    </script>
+    <script>
+        window.giftRegistrantData = <?php echo \Zend_Json::encode($block->getRegistrantConfig()) ?>;
+    </script>
+<?php endif; ?>

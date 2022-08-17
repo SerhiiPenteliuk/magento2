@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <action method="setActive">
+                <argument name="path" xsi:type="string">giftr/registry</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="giftr.navigation" template="Mirasvit_Giftr::navigation.phtml">
+                <arguments>
+                    <argument name="items" xsi:type="array">
+                        <item name="*/registry/edit/" xsi:type="string" translate="true">My Gift Registry</item>
+                        <item name="*/item/manage/" xsi:type="string" translate="true">Manage Items</item>
+                        <item name="*/registry/share/" xsi:type="string" translate="true">Share with Friends</item>
+                        <item name="*/registry/view/" xsi:type="string" translate="true">Guest View</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

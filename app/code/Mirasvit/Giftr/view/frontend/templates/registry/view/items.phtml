@@ -1,0 +1,116 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Manage
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ */
+?>
+<?php
+/* @var $output Magento\Catalog\Helper\Output */
+$output = $this->helper('Magento\Catalog\Helper\Output');
+?>
+
+<?php foreach ($block->getItemCollection() as $item): ?>
+    <?php
+    /** @var \Mirasvit\Giftr\Model\Item $item * */
+    $item = $block->getItemById($item->getId());
+    $product = $item->getProduct();
+    if (!$product) {
+        continue;
+    }
+    $productName = $block->stripTags($product->getName(), null, true);
+    $options = $block->getChildBlock('giftr.item.options')
+        ->setItem($item)
+        ->getConfiguredOptions();
+    ?>
+
+    <!-- skip disabled or not visible products-->
+    <?php if (!$product->isVisibleInCatalog() || !$product->isVisibleInSiteVisibility() || !$product->getUseInGiftr()): ?>
+        <?php continue ?>
+    <?php endif ?>
+
+    <li class="product-item" id="item_<?php echo $item->getId() ?>">
+        <div class="product-item-info">
+            <input type="hidden" name="items[<?php echo $item->getId() ?>][product_id]"
+                   value="<?php echo $product->getId() ?>"/>
+
+            <a class="product-item-photo" href="<?php echo $product->getProductUrl() ?>" title="<?php echo $productName ?>">
+                <?php echo $block->getProductImage($item, 'wishlist_thumbnail', $options)->toHtml(); ?>
+            </a>
+
+            <strong class="product-item-name">
+                <a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $productName ?>">
+                    <?php echo $output->productAttribute($product, $product->getName(), 'name') ?>
+                </a>
+            </strong>
+
+            <div class="price-box">
+                <span id="product-price-<?php echo $product->getId() ?>" class="regular-price">
+                    <?php echo $block->getPrice($product) ?>
+                </span>
+            </div>
+
+            <strong><?php echo __('Desired Qty') ?>:</strong> <span><?php echo $item->getQty() ?></span>
+            <br/>
+
+            <strong><?php echo __('Invoiced/Received Qty') ?>:</strong> <span><?php echo $item->getQtyOrdered().'/'.$item->getQtyReceived() ?></span>
+            <br/>
+
+            <?php
+                if (!empty($options)) :
+                foreach ($options as $option): ?>
+                    <strong><?php echo __($option['label']) ?>:</strong> 
+                    <span><?php echo is_array($option['value']) ? nl2br(implode("\n", $option['value'])) : $option['value'] ?></span>
+                    <br/>
+            <?php
+                endforeach;
+                endif;
+            ?>
+
+            <div class="product-item-inner">
+                <?php if ($item->getPriorityName()): ?>
+                    <strong><?php echo __('Priority') ?>:</strong> <span><?php echo $item->getPriorityName() ?></span>
+                <?php endif ?>
+
+                <?php if ($item->getNote()): ?>
+                    <br><i class="note"><?php echo $item->getNote() ?></i>
+                <?php endif ?>
+                <?php $qtyToOrder = ($item->getQty() - $item->getQtyOrdered()) > 0 ? $item->getQty() - $item->getQtyOrdered() : 0;?>
+
+                <div class="box-tocart">
+                    <fieldset class="fieldset">
+                        <div class="field qty">
+                            <div class="control">
+                                <input type="number" data-role="qty" id="item_qty_<?php echo $item->getId() ?>" class="input-text qty"
+                                       data-validate="{'required-number':true,'validate-greater-than-zero':true}"
+                                       name="items[<?php echo $item->getId() ?>][qty]" value="<?php echo $qtyToOrder ?>">
+                            </div>
+                        </div>
+
+                        <?php if ($block->isComplete($item)): ?>
+                            <div class="msg"><h4><?php echo __('Complete') ?></h4></div>
+                        <?php elseif (!$item->isSalable()): ?>
+                            <div class="msg">
+                                <h4 class="availability out-of-stock">
+                                    <span><?php echo __('Out Of Stock') ?></span>
+                                </h4>
+                            </div>
+                        <?php else: ?>
+                            <div class="product-item-actions">
+                                <div class="actions-primary">
+                                    <button type="button" title="<?php echo __('Add to Cart') ?>"
+                                            class="action tocart primary"
+                                            data-bind="click: addToCart.bind($data, '<?php echo $item->getId() ?>');">
+                                        <span><?php echo __('Add to Cart') ?></span>
+                                    </button>
+                                </div>
+                            </div>
+                        <?php endif ?>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </li>
+<?php endforeach ?>
+<script type="text/x-magento-init">
+    <?php echo \Zend\Json\Encoder::encode($block->getJsConfiguration()) ?>
+</script>
