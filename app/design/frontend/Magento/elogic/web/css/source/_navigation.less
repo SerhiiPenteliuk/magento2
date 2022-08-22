@@ -324,10 +324,10 @@
 
                 .header-category-list {
                     p:first-of-type {
-                        font-size: 14px;
-                        font-weight: @font-weight__semibold;
+                        .lib-font-size(14);
+                        .lib-css(font-weight, @font-weight__semibold);
                         text-transform: uppercase;
-                        margin-top: 10px;
+                        margin-top: @indent__s;
                         margin-bottom: 15%;
                     }
 
@@ -340,24 +340,24 @@
                     padding: 0;
                     position: relative;
                     transition: padding .3s ease;
-                    margin: 20px 20px;
+                    margin: @indent__base @indent__base;
 
                     &:hover {
-                        padding-left: 20px;
+                        padding-left: @indent__base;
 
                         &:before {
                             content: "\e600";
                             font-family: luma-icons;
                             speak: none;
                             font-style: normal;
-                            font-weight: @font-weight__regular;
-                            color: @color-elogic__white;
                             font-variant: normal;
                             text-transform: none;
                             line-height: 1;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
-                            font-size: 7px;
+                            .lib-css(font-weight, @font-weight__regular);
+                            .lib-css(color, @color-elogic__white);
+                            .lib-font-size(7);
                             position: absolute;
                             top: 50%;
                             left: 0;

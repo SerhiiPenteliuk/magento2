@@ -2,7 +2,7 @@
     .cms-home {
         .news-blog {
             ul {
-                display: flex;
+                .lib-vendor-prefix-display(flex);
                 width: 100%;
             }
         }
@@ -17,12 +17,12 @@
                         padding: 0;
                     }
                     .post-posed-date {
-                        color: #888;
-                        font-size: 13px;
-                        margin-bottom: 10px;
+                        .lib-css(color, @color-elogic__grey);
+                        .lib-font-size(13);
+                        .lib-css(font-weight, @font-weight__hairline);
+                        margin-bottom: @indent__s;
                         font-style: italic;
                         position: relative;
-                        font-weight: 100;
                         .lib-icon-font(@icon-calendar,
                             @_icon-font: 'luma-icons',
                             @_icon-font-position: before
@@ -36,15 +36,15 @@
                     }
                     p {
                         letter-spacing: .25px;
-                        font-size: 14px;
                         line-height: 1.5;
-                        color: #888;
-                        font-weight: 100;
+                        .lib-font-size(14);
+                        .lib-css(color, @color-elogic__grey);
+                        .lib-css(font-weight, @font-weight__hairline);
                     }
                     .post-title a {
-                        color: #222;
-                        font-size: 14px;
-                        font-weight: 600;
+                        .lib-css(color, @color-header-dark);
+                        .lib-font-size(14);
+                        .lib-css(font-weight, @font-weight__semibold);
                         text-transform: uppercase;
                         line-height: 1.5;
                         display: inline-block;

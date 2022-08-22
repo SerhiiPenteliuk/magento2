@@ -89,12 +89,12 @@
         margin-bottom: @indent__base;
 
         .header.content {
-            display: flex;
-            align-items: center;
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-box-align(center);
             justify-content: space-between;
 
             .header-user-activity {
-                display: flex;
+                .lib-vendor-prefix-display(flex);
                 gap: 2rem;
             }
 
@@ -111,8 +111,8 @@
                 list-style: none;
 
                 a {
-                    font-size: 12px;
-                    font-weight: 300;
+                    .lib-font-size(12);
+                    .lib-css(font-weight, @font-weight__light);
                     text-transform: uppercase;
                     letter-spacing: 1px;
 
@@ -122,20 +122,20 @@
                     }
 
                     &:active, &:hover {
-                        color: #888;
+                        .lib-css(color, @color-elogic__grey);
                     }
                 }
             }
 
             span {
-                color: @color-elogic__black;
-                font-size: 14px;
-                font-weight: 400;
+                .lib-css(color, @color-elogic__black);
+                .lib-font-size(14);
+                .lib-css(font-weight, @font-weight__regular);
                 letter-spacing: 1px;
                 text-transform: uppercase;
 
                 &:hover {
-                    color: @color-elogic__grey;
+                    .lib-css(color, @color-elogic__grey);
                 }
             }
 
@@ -315,15 +315,15 @@
 
                     a {
                         outline: 0;
-                        font-weight: 300;
+                        .lib-css(font-weight, @font-weight__light);
+                        .lib-css(color, @color-elogic__grey);
                         letter-spacing: .25px;
                         overflow: hidden;
                         display: block;
-                        color: #888;
                         text-decoration: none;
 
                         &:hover {
-                            color: #000;
+                            .lib-css(color, @color-elogic__black);
                         }
                     }
                 }
@@ -331,15 +331,15 @@
 
             .row-footer-bottom {
                 p {
-                    padding-right: 30px;
+                    padding-right: @indent__l;
                     text-transform: uppercase;
                     line-height: 22px;
-                    font-weight: 300;
-                    margin: 0 0 10px;
-                    color: #888;
-                    display: flex;
+                    margin: 0 0 @indent__s;
+                    .lib-css(font-weight, @font-weight__light);
+                    .lib-css(color, @color-elogic__grey);
+                    .lib-vendor-prefix-display(flex);
+                    .lib-vendor-box-align(center);
                     justify-content: flex-end;
-                    align-items: center;
 
                     img {
                         margin: 0 2%;
@@ -347,13 +347,13 @@
                 }
 
                 ul {
-                    display: flex;
+                    .lib-vendor-prefix-display(flex);
 
                     li {
                         margin-right: 4%;
 
                         a {
-                            font-size: 12px;
+                            .lib-font-size(12);
                             text-transform: uppercase;
                             letter-spacing: 1px;
                         }
@@ -622,8 +622,8 @@
                         position: relative;
                         text-transform: uppercase;
                         letter-spacing: 1px;
-                        font-size: 12px;
-                        font-weight: 300;
+                        .lib-font-size(12);
+                        .lib-css(font-weight, @font-weight__light);
                     }
 
                     &:before {
@@ -784,7 +784,7 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: 30px 0 30px;
+            padding: @indent__l 0 @indent__l;
         }
     }
 
@@ -847,17 +847,18 @@
             border-top: none;
 
             h2 {
-                margin-bottom: 40px;
-                font-size: 16px;
+                margin-bottom: @indent__xl;
+                .lib-font-size(16);
                 padding-bottom: 0;
                 letter-spacing: 1px;
                 text-transform: uppercase;
                 font-weight: 500;
+                .lib-css(font-weight, @font-weight__heavier);
+                .lib-css(color, @color-header-dark);
                 line-height: 1;
-                color: #222;
 
                 &:hover {
-                    color: #888;
+                    .lib-css(color, @color-elogic__grey);
                 }
             }
 
@@ -881,7 +882,7 @@
                 li {
                     background: transparent;
                     border: none;
-                    font-size: 14px;
+                    .lib-font-size(14);
                     margin: 0 0 8px;
                     padding: 0;
                 }

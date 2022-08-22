@@ -59,14 +59,14 @@
                         left: 75%;
                         width: 20%;
                         padding: 20px;
-                        font-size: 14px;
-                        background-color: #222;
-                        color: @color-elogic__white;
+                        .lib-font-size(14);
+                        .lib-css(color, @color-elogic__white);
+                        background-color: @color-header-dark;
                         border: 1px solid rgba(210, 210, 210, .175);
                         box-shadow: none;
 
                         &::placeholder {
-                            color: #888;
+                            .lib-css(color, @color-elogic__grey);
                         }
                     }
                 }
