@@ -63,9 +63,9 @@
             width: 40px;
 
             &:hover {
-                color: @color-elogic__white;
-                background: @color-header-dark;
-                border-color: @color-header-dark;
+                .lib-css(color, @color-elogic__white);
+                .lib-css(background, @color-header-dark);
+                .lib-css(border-color, @color-header-dark);
             }
 
             span {
@@ -158,8 +158,8 @@
 
         .block-content {
             .empty {
-                color: @color-elogic__grey;
-                font-weight: @font-weight__light;
+                .lib-css(color, @color-elogic__grey);
+                .lib-css(font-weight, @font-weight__light);
             }
         }
 

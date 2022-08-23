@@ -11,11 +11,11 @@
         margin: 0 0 @indent__base;
 
         strong {
-            font-size: @font-size__l;
-            font-weight: @font-weight__heavier;
+            .lib-font-size(@font-size__l);
+            .lib-css(font-weight, @font-weight__heavier);
             vertical-align: middle;
             letter-spacing: 1px;
-            color: @color-elogic__black;
+            .lib-css(color, @color-elogic__black);
             cursor: pointer;
         }
     }
