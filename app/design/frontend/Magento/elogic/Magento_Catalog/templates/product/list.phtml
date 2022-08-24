@@ -54,7 +54,7 @@ $_imageHover = 'hover_product_list';
                          id="product-item-info_<?= /* @noEscape */ $_product->getId() ?>"
                          data-container="product-<?= /* @noEscape */ $viewMode ?>">
 
-                        <div class="product-item-image" data-container="product-grid">
+                        <div class="product-item-image" data-container="product-<?= /* @noEscape */ $viewMode ?>">
                             <?php
                             $productImage = $block->getImage($_product, $imageDisplayArea);
                             if ($pos != null) {
@@ -74,7 +74,7 @@ $_imageHover = 'hover_product_list';
                                     . 'top:' . $productImage->getHeight() . 'px;"';
                             }
                             ?>
-                            <?php if (strpos($productImageHover->getUrl(), 'Magento_Catalog/images/product/placeholder/hover.jpg') == false && $viewMode=='grid') { ?>
+                            <?php if (strpos($productImageHover->getUrl(), 'Magento_Catalog/images/product/placeholder/hover.jpg') == false) { ?>
                                 <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product-item-photo-hovered" tabindex="-1">
                                     <img src="<?php echo $productImageHover->getUrl(); ?>" class="photo-image-hover" width="<?php echo $productImage->getWidth(); ?>" height="<?php echo $productImage->getWidth() ?>" alt="<?php echo $productImageHover->getLabel() ?>"/>
                                 </a>
