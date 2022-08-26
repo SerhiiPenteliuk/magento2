@@ -471,24 +471,7 @@
                 @_icon-font-content: @icon-compare-full,
                 @_icon-font-position: before
             );
-            background: @color-elogic__white none repeat scroll 0 0;
-            border: 1px solid @color-elogic__white-light;
-            color: @color-elogic__black;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            line-height: 40px;
-            margin-right: 6px;
-            text-align: center;
-            transition: all .3s ease-out 0s;
-            width: 40px;
-
-            &:hover {
-                .lib-css(color, @color-elogic__white);
-                background: @color-header-dark;
-                border-color: @color-header-dark;
-            }
+            .product-page-icons-mixin(); //custom mixin
 
             span {
                 display: none;
