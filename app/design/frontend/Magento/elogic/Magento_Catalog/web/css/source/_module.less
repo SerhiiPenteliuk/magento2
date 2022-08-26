@@ -230,7 +230,7 @@
 
         .product-info-stock-sku {
             .lib-vendor-prefix-display(flex);
-            flex-direction: column;
+            .lib-vendor-prefix-flex-direction(column);
             .lib-css(font-weight, @font-weight__light);
         }
 
@@ -387,8 +387,8 @@
         padding-bottom: @indent__s;
 
         .old-price {
-            font-size: 20px;
-            font-weight: @font-weight__light;
+            .lib-font-size(20);
+            .lib-css(font-weight, @font-weight__light);
 
             .price-container > span {
                 display: inline-block;
@@ -406,8 +406,8 @@
             }
 
             .price {
-                font-size: 22px;
-                font-weight: @font-weight__semibold;
+                .lib-font-size(22);
+                .lib-css(font-weight, @font-weight__semibold);
                 line-height: 22px;
             }
 
@@ -419,7 +419,7 @@
 
                 .price {
                     .lib-font-size(12);
-                    font-weight: @font-weight__bold;
+                    .lib-css(font-weight, @font-weight__bold);
                 }
             }
         }
@@ -471,24 +471,7 @@
                 @_icon-font-content: @icon-compare-full,
                 @_icon-font-position: before
             );
-            background: @color-elogic__white none repeat scroll 0 0;
-            border: 1px solid @color-elogic__white-light;
-            color: @color-elogic__black;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            line-height: 40px;
-            margin-right: 6px;
-            text-align: center;
-            transition: all .3s ease-out 0s;
-            width: 40px;
-
-            &:hover {
-                color: @color-elogic__white;
-                background: @color-header-dark;
-                border-color: @color-header-dark;
-            }
+            .product-page-icons-mixin(); //custom mixin
 
             span {
                 display: none;
@@ -575,7 +558,7 @@
 
             .counter {
                 .lib-css(color, @primary__color__lighter);
-                font-size: 12px;
+                .lib-font-size(12);
                 white-space: nowrap;
             }
 
@@ -638,7 +621,7 @@
 
         .product-items-names {
             .product-item {
-                display: flex;
+                .lib-vendor-prefix-display(flex);
                 margin-bottom: @indent__s;
             }
 
@@ -750,8 +733,8 @@
                 font-size: @font-size__xl;
 
                 .price {
-                    font-size: 20px;
-                    font-weight: @font-weight__semibold;
+                    .lib-font-size(20);
+                    .lib-css(font-weight, @font-weight__semibold);
                 }
             }
 
@@ -1014,8 +997,8 @@
         }
 
         .empty {
-            color: @color-elogic__grey;
-            font-weight: @font-weight__light;
+            .lib-css(color, @color-elogic__grey);
+            .lib-css(font-weight, @font-weight__light);
         }
 
         .product-item .product-item-name {

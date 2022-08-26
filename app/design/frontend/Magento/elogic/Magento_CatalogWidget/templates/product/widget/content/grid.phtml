@@ -2,6 +2,8 @@
 
 use Magento\Framework\App\Action\Action;
 
+/** Added "a" tag to add new icon on image */
+
 /** @var \Magento\CatalogWidget\Block\Product\ProductsList $block */
 
 // phpcs:disable Generic.Files.LineLength.TooLong
@@ -83,6 +85,7 @@ use Magento\Framework\App\Action\Action;
                                             <?php endif; ?>
                                             <?php if ($showWishlist || $showCompare): ?>
                                                 <div class="actions-secondary" data-role="add-to-links">
+                                                <!--class for icon added-->
                                                     <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="action tosearch"><span>Search</span></a>
                                                     <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist): ?>
                                                         <a href="#"

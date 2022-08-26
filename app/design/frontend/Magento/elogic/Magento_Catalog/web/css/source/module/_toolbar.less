@@ -30,9 +30,9 @@
 
         select {
             height: 36px;
-            font-size: 12px;
-            border-color: #eee;
-            color: #888;
+            .lib-font-size(12);
+            .lib-css(border-color, @color-elogic__white-light);
+            .lib-css(color, @color-elogic__grey);
         }
 
         .sorter-action {
@@ -42,13 +42,13 @@
         }
 
         &-amount {
-            font-weight: 300;
-            border-bottom: 1px solid #888;
+            .lib-css(font-weight, @font-weight__light);
+            .lib-font-size(14);
+            .lib-css(color, @color-header-dark);
+            border-bottom: 1px solid @color-elogic__grey;
             letter-spacing: 1px;
-            padding-bottom: 5px;
+            padding-bottom: @indent__xs;
             text-transform: uppercase;
-            font-size: 14px;
-            color: #222;
             margin: 0 1% 0 0;
 
             .products.wrapper ~ .toolbar & {
@@ -81,20 +81,20 @@
                 &:before {
                     content: "\e619";
                     font-family: 'luma-icons';
-                    font-size: 16px;
+                    .lib-font-size(16);
                 }
             }
 
             .pages-items {
                 .item {
-                    font-size: 16px;
+                    .lib-font-size(16);
                     margin: 0;
                     padding: 0;
 
                     .action.next {
                         &:before {
                             &:hover {
-                                color: @color-elogic__white;
+                                .lib-css(color, @color-elogic__white);
                             }
                         }
                     }
@@ -103,7 +103,7 @@
                         strong, a {
                             transition: all 0.4s ease;
                             background-color: @color-elogic__black;
-                            color: @color-elogic__white;
+                            .lib-css(color, @color-elogic__white);
                         }
                     }
 
@@ -113,13 +113,13 @@
                         height: 36px;
                         text-align: center;
                         line-height: 36px;
-                        background-color: #eee;
+                        background-color: @color-elogic__white-light;
                         border: 0;
-                        color: #222;
-                        font-weight: 400;
-                        margin: 0 5px;
+                        .lib-css(color, @color-header-dark);
+                        .lib-css(font-weight, @font-weight__regular);
+                        margin: 0 @indent__xs;
                         padding: 0;
-                        font-size: 16px;
+                        .lib-font-size(16);
                     }
 
                 }
@@ -172,7 +172,7 @@
         }
 
         &-label {
-            font-weight: 400;
+            .lib-css(font-weight, @font-weight__regular);
         }
 
         .page-products .toolbar & {
@@ -213,12 +213,12 @@
             &:before {
                 content: "\e619";
                 font-family: 'luma-icons';
-                font-size: 16px;
+                .lib-font-size(16);
             }
 
             &:hover {
                 &:before {
-                    color: @color-elogic__white;
+                    .lib-css(color, @color-elogic__white);
                 }
             }
         }
@@ -257,18 +257,18 @@
         height: 32px;
         text-align: center;
         line-height: 30px;
-        margin-left: 5px;
+        margin-left: @indent__xs;
         padding: 0;
-        background-color: #eee;
+        background-color: @color-elogic__white-light;
         border: 0;
-        color: #222;
+        .lib-css(color, @color-header-dark);
         transition: all 0.4s ease;
 
         &.active, &:hover {
             background: @color-elogic__black;
 
             &:before {
-                color: @color-elogic__white;
+                .lib-css(color, @color-elogic__white);
             }
         }
 

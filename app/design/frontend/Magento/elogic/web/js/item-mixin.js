@@ -10,6 +10,7 @@ define([
         var mixin = {
             defineBehaviour: function () {
                 if (!this.isLoggedIn()) {
+                    event.stopPropagation();
                     $('#addto-giftr').click(window.location.assign(this.loginUrl));
                 }
                 if (this.registries._latestValue.length === 1) {

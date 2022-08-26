@@ -27,15 +27,15 @@
         margin: @indent__l 0;
     }
 
-    .bestsellers {
+    .bestsellers { //custom heading
         h2 {
-            font-size: 18px;
-            color: #222;
+            .lib-font-size(18);
+            .lib-css(color, @color-header-dark);
+            .lib-css(font-weight, @font-weight__semibold);
             text-align: left;
             padding-bottom: 5%;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid @color-elogic__white-light;
             margin-bottom: 10%;
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-right: 10%;
@@ -92,15 +92,15 @@
                 display: block;
                 hyphens: auto;
                 word-wrap: break-word;
-                font-size: 14px;
-                font-weight: 400;
+                .lib-css(font-weight, @font-weight__regular);
+                .lib-font-size(14);
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 margin-bottom: 10px;
 
                 & a {
-                    color: #888;
+                    color: @color-elogic__grey;
                 }
             }
 
@@ -187,7 +187,7 @@
 
                 .reviews-actions {
                     font-size: @font-size__s;
-                    margin-top: 5px;
+                    margin-top: @indent__xs;
                 }
             }
 
@@ -301,38 +301,40 @@
                 h2 {
                     text-transform: uppercase;
                     letter-spacing: 1px;
-                    font-weight: 600;
-                    color: @color-elogic__black;
+                    .lib-css(font-weight, @font-weight__semibold);
+                    .lib-css(color, @color-elogic__black);
                     line-height: 0;
                 }
 
                 p {
                     text-transform: uppercase;
                     letter-spacing: 1px;
-                    font-size: 14px;
+                    .lib-font-size(14);
                     padding-bottom: 5px;
                     position: relative;
-                    color: #888;
+                    color: @color-elogic__grey;
                 }
 
                 &:after {
                     content: "";
                     width: 30px;
                     height: 3px;
-                    background: #222;
+                    background: @color-header-dark;
                     position: relative;
                     float: left;
                 }
             }
         }
+
         .block-title {
             h2 {
-                font-size: 18px;
-                font-weight: 600;
+                .lib-font-size(18);
+                .lib-css(font-weight, @font-weight__semibold);
                 letter-spacing: 1px;
                 text-transform: uppercase;
             }
         }
+
         .product-section-title {
             .lib-font-size(18);
             .lib-css(color, @color-header-dark);
@@ -513,7 +515,7 @@
         .products-grid & {
             border-top: none;
             left: 0;
-            margin: 10px 0 0 -1px;
+            margin: @indent__s 0 0 -1px;
             padding: 0 9px 9px;
             position: absolute;
             right: -1px;
@@ -522,7 +524,7 @@
             .our-products &,
             .page-products & {
                 left: 0;
-                margin: 10px 0 0 -1px;
+                margin: @indent__s 0 0 -1px;
                 padding: 0 9px 9px;
                 position: absolute;
                 right: -1px;
@@ -547,10 +549,10 @@
                 .our-products &,
                 .page-products & {
                     text-transform: uppercase;
-                    font-size: 14px;
+                    .lib-font-size(14);
                     letter-spacing: 1px;
                     border: 0;
-                    border-bottom: 1px solid #222;
+                    border-bottom: 1px solid @color-header-dark;
                     margin: auto;
                     padding: 0 0 10px 0;
                 }
@@ -562,11 +564,11 @@
 
             .our-products &,
             .products-grid & {
-                display: flex;
+                .lib-vendor-prefix-display();
                 position: absolute;
                 top: -30rem;
                 right: 12rem;
-                flex-direction: column;
+                .lib-vendor-prefix-flex-direction(column);
                 background-color: @color-elogic__white;
                 padding: 3%;
             }
@@ -714,8 +716,8 @@
             .product-items {
                 margin: 0;
                 text-align: center;
-                display: flex;
-                flex-wrap: wrap;
+                .lib-vendor-prefix-display();
+                .lib-vendor-prefix-flex-wrap();
             }
 
             .product-item {

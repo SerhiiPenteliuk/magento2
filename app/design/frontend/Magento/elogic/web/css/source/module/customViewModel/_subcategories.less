@@ -4,12 +4,12 @@
         margin-top: 5%;
 
         .subcat {
-            font-size: 18px;
+            .lib-font-size(18);
             padding-bottom: 18px;
             letter-spacing: 1px;
-            color: #222;
+            .lib-css(color, @color-header-dark);
             cursor: pointer;
-            font-weight: 600;
+            .lib-css(font-weight, @font-weight__semibold);
             overflow: hidden;
             position: relative;
             text-transform: uppercase;
@@ -17,8 +17,8 @@
             z-index: 1;
             display: block;
             text-decoration: none;
-            border-bottom: 1px solid #eeeeee;
-            margin: 0 0 10px;
+            border-bottom: 1px solid @color-elogic__white-light;
+            margin: 0 0 @indent__s;
 
             a {
                 .lib-link(
