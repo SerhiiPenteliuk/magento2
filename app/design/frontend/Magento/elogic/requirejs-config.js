@@ -7,7 +7,7 @@ var config = {
     map: {
         '*': {
             'selectize': 'js/jquery.nice-select',
-            'CustomWidget': 'js/mywidget',
+            'CustomWidget': 'Magento_Catalog/js/mywidget',
         }
     },
     shim: {

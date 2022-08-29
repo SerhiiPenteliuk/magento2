@@ -9,7 +9,7 @@ define([
          * @private
          */
         _create: function (addToCart) {
-            $('#minusQty').click(function () {
+            $('.control').find('#minusQty').click(function () {
                 if ($('#qty').val() > 1) {
                     $('#qty').val(parseInt($('#qty').val()) - 1);
                 }
@@ -18,7 +18,7 @@ define([
                 }
             });
 
-            $('#addQty').click(function () {
+            $('.control').find('#addQty').click(function () {
                 $('#qty').val(parseInt($('#qty').val()) + 1);
             });
             return addToCart;

@@ -55,12 +55,12 @@
             }
 
             .label {
-                font-weight: @font-weight__regular; // custom
+                .lib-css(font-weight, @font-weight__regular); // custom
                 .lib-font-size(@font-size__s);
 
                 .box-tocart & {
                     text-transform: uppercase;
-                    font-weight: @font-weight__bold;
+                    .lib-css(font-weight, @font-weight__bold);
                 }
 
                 .column:not(.main) & {
@@ -73,8 +73,8 @@
 
                 .box-tocart & {
                     border: 1px solid #e8e8e8;
-                    display: inline-flex;
-                    align-items: center;
+                    .lib-vendor-prefix-display(inline-flex);
+                    .lib-vendor-box-align(center);
                     justify-content: center;
                     height: 35px;
                     line-height: 35px;
@@ -87,8 +87,8 @@
 
                     button {
                         width: 35px;
-                        display: inline-flex;
-                        align-items: center;
+                        .lib-vendor-prefix-display(inline-flex);
+                        .lib-vendor-box-align(center);
                         justify-content: center;
                         .lib-css(color, @color-elogic__black);
                         .lib-css(background, @color-elogic__white);
