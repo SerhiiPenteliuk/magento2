@@ -33,7 +33,7 @@
                 margin-left: 0;
             }
             .bestsellers & {
-                display: flex;
+                .lib-vendor-prefix-display(flex);
             }
         }
 
@@ -41,8 +41,8 @@
             width: auto;
 
             .bestsellers & {
-                display: flex;
-                align-items: center;
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-box-align(center);
             }
 
             .product-item-photo {
@@ -54,9 +54,9 @@
             .product-item-details {
                 .bestsellers &{
                     margin-left: 2%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
+                    .lib-vendor-prefix-display(flex);
+                    .lib-vendor-box-align(flex-start);
+                    .lib-vendor-prefix-flex-direction(column);
                     line-height: 1rem;
                 }
             }

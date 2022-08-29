@@ -124,7 +124,7 @@
 
                 .actions-secondary {
                     display: inline-block;
-                    font-size: 1.4rem;
+                    .lib-font-size(14);
 
                     > button.action {
                         .lib-button-reset();
@@ -186,7 +186,7 @@
                 }
 
                 .reviews-actions {
-                    font-size: @font-size__s;
+                    .lib-font-size(@font-size__s);
                     margin-top: @indent__xs;
                 }
             }
@@ -200,7 +200,7 @@
                 }
 
                 .price {
-                    font-weight: @font-weight__semibold;
+                    .lib-css(font-weight, @font-weight__semibold);
                     white-space: nowrap;
 
                     .our-products &,
@@ -208,7 +208,7 @@
                     .page-products &,
                     .products-related &,
                     .products-upsell & {
-                        font-size: 2rem;
+                        .lib-font-size(20);
                     }
                 }
 
@@ -272,7 +272,7 @@
             }
 
             .tocart {
-                .lib-font-size(13px);
+                .lib-font-size(13);
                 border-radius: 0;
                 line-height: 1;
                 padding-bottom: @indent__s;
@@ -312,7 +312,7 @@
                     .lib-font-size(14);
                     padding-bottom: 5px;
                     position: relative;
-                    color: @color-elogic__grey;
+                    .lib-css(color, @color-elogic__grey);
                 }
 
                 &:after {
@@ -392,13 +392,13 @@
                     margin: 5% 0 5%;
 
                     .price {
-                        font-size: @font-size__l;
-                        font-weight: @font-weight__heavier;
+                        .lib-font-size(@font-size__l);
+                        .lib-css(font-weight, @font-weight__heavier);
                     }
                 }
 
                 &-info {
-                    .lib-vendor-prefix-display();
+                    .lib-vendor-prefix-display(flex);
                     margin-bottom: 3%;
                 }
 
@@ -564,7 +564,7 @@
 
             .our-products &,
             .products-grid & {
-                .lib-vendor-prefix-display();
+                .lib-vendor-prefix-display(flex);
                 position: absolute;
                 top: -30rem;
                 right: 12rem;
@@ -716,8 +716,8 @@
             .product-items {
                 margin: 0;
                 text-align: center;
-                .lib-vendor-prefix-display();
-                .lib-vendor-prefix-flex-wrap();
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-wrap(wrap);
             }
 
             .product-item {
