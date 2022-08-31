@@ -93,7 +93,7 @@
             .lib-vendor-box-align(center);
             justify-content: space-between;
 
-            .header-user-activity {
+            .header-actions {
                 .lib-vendor-prefix-display(flex);
                 gap: 2rem;
             }
@@ -118,7 +118,7 @@
 
                     &:visited, &:link {
                         text-decoration: none;
-                        color: @color-elogic__black;
+                        .lib-css(color, @color-elogic__black);
                     }
 
                     &:active, &:hover {
@@ -143,14 +143,14 @@
                 list-style-type: none;
 
                 a {
-                    font-size: 0;
+                    .lib-font-size(0);
                     text-decoration: none;
 
                     &:before {
                         content: '\e600';
                         font-family: 'luma-icons';
-                        color: #222;
-                        font-size: 14px;
+                        .lib-css(color, @color-header-dark);
+                        .lib-font-size(14);
                     }
                 }
 
@@ -300,10 +300,26 @@
         margin-top: @indent__m;
     }
 
+    //footer custom
     .footer {
         &.content {
-            border-top: 1px solid @footer-links-separator-border-color;
+            border-top: none;
             padding-top: @indent__base;
+
+            h2 {
+                margin-bottom: @indent__xl;
+                .lib-font-size(16);
+                padding-bottom: 0;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                .lib-css(font-weight, @font-weight__heavier);
+                .lib-css(color, @color-header-dark);
+                line-height: 1;
+
+                &:hover {
+                    .lib-css(color, @color-elogic__grey);
+                }
+            }
 
             ul {
                 list-style-type: none;
@@ -844,30 +860,6 @@
 
     .footer {
         &.content {
-            border-top: none;
-
-            h2 {
-                margin-bottom: @indent__xl;
-                .lib-font-size(16);
-                padding-bottom: 0;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                font-weight: 500;
-                .lib-css(font-weight, @font-weight__heavier);
-                .lib-css(color, @color-header-dark);
-                line-height: 1;
-
-                &:hover {
-                    .lib-css(color, @color-elogic__grey);
-                }
-            }
-
-            .block {
-            }
-
-            ul {
-                padding-right: 50px;
-            }
 
             .switcher.store {
                 display: block;

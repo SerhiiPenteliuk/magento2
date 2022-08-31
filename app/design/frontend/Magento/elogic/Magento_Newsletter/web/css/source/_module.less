@@ -11,7 +11,7 @@
         .lib-vendor-box-align(center);
         max-width: 100%;
         justify-content: space-around;
-        background-color: #f4f4f4;
+        background-color: @color-newsletter-bg;
 
         .form.subscribe {
             display: table;
@@ -41,12 +41,13 @@
             line-height: 49px;
             padding-left: @indent__base;
 
-            &::placeholder {
+            &::placeholder { //custom
                 .lib-css(font-weight, @font-weight__hairline);
                 .lib-css(color, @color-elogic__grey);
             }
         }
 
+        //custom
         .title {
             h2 {
                 margin-bottom: 0;
@@ -61,6 +62,7 @@
                     .lib-css(color, @color-header-dark);
                 }
             }
+
             p {
                 .lib-css(font-weight, @font-weight__hairline);
                 .lib-css(color, @color-elogic__grey);

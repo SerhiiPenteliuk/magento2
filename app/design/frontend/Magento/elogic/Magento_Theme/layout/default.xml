@@ -30,13 +30,13 @@
         </referenceContainer>
 
         <referenceContainer name="header-wrapper">
-            <container name="user.activity" as="userActivity" label="User Activity" htmlTag="div" htmlClass="header-user-activity" after="navigation.sections" />
+            <container name="header-actions" as="headerActions" htmlTag="div" htmlClass="header-actions" after="navigation.sections" />
         </referenceContainer>
 
-        <move element="authorization-link" destination="user.activity" before="-"/>
-        <move element="wish-list-link" destination="user.activity" after="authorization-link" />
-        <move element="top.search" destination="user.activity" after="-" />
-        <move element="minicart" destination="user.activity" before="top.search" />
+        <move element="authorization-link" destination="header-actions" before="-"/>
+        <move element="wish-list-link" destination="header-actions" after="authorization-link" />
+        <move element="top.search" destination="header-actions" after="-" />
+        <move element="minicart" destination="header-actions" before="top.search" />
         <referenceContainer name="header.panel.wrapper" remove="true"/>
         <referenceContainer name="compare-link-wrapper" remove="true"/>
 
