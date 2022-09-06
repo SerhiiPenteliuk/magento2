@@ -1,11 +1,16 @@
 define([
         "jquery",
-        "selectize"
+        "selectize",
+        "sticky"
     ],
     function ($) {
         "use strict";
 
         $(function () {
             $('select').niceSelect();
+
+            $('.page-header').sticky({
+                container: '.page-wrapper'
+            });
         });
     });

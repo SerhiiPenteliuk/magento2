@@ -84,9 +84,11 @@
     //  ---------------------------------------------
 
     .page-header {
-        .lib-css(background-color, @header__background-color);
+        .lib-css(background-color, @color-elogic__white);
         border-bottom: 1px solid @border-color__base;
         margin-bottom: @indent__base;
+        position: relative;
+        z-index: 100;
 
         .header.content {
             .lib-vendor-prefix-display(flex);
